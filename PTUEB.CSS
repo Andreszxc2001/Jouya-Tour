@@ -345,6 +345,17 @@ body {
         color: #fafafa;
     }
 
+
+    .contacto ul li 
+    {list-style: none;
+        padding: 1px;}
+
+        
+    .contacto a {
+        text-decoration: none;
+        color: #ffffff;
+    }
+
     .credits  {
         text-align: center;
         height: 0px;
