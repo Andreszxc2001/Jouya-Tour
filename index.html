@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Cargar iconos de FontAwesome -->
+  <script src="https://kit.fontawesome.com/3140323153.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/css/styles_home.css">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+
+    <title>Jouya tour</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+
+        <div class="logoindex">
+            <a href="/index.html"><img src="/assets/logos/Logo transparente.png" alt="logo">Jouya tour</a>
+        </div>
+
+            <div class="nav-links">
+               <ul>
+                    <li><a href="#inicio"><i class="fa-solid fa-house"></i>Inicio</a></li>
+                    <li><a href="#destinos"><i class="fa-solid fa-earth-americas"></i>Destinos</a></li>
+                    <li><a href="#guides-section"><i class="fa-solid fa-person"></i>Guías</a></li>
+                    <li><a href="#experiencias"><i class="fas fa-star"></i>Experiencias</a></li>
+                    <li><a href="#contacto"><i class="fa-solid fa-phone"></i>Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Explora La Guajira con guías locales expertos</h1>
+            <p>Experiencias únicas y personalizadas en los diferentes destinos que tenemos para ti.</p>
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="¿A dónde quieres ir?">
+                <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i>Encontrar Guías</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Nueva sección de destinos -->
+    <section class="destinations" id="destinos">
+        <div class="destinations-container">
+            <h2>Destinos Populares</h2>
+            <div class="destinations-grid" id="destinationsGrid">
+                <!-- Se generará dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <section class="guides-section" id="guides-section">
+        <div class="guides-container">
+            <h2>Guías Destacados</h2>
+            <div class="guides-grid" id="guidesGrid">
+                <!-- Se generará dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="experiencias">
+        <h2>¿Por qué elegir Jouya tour?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Guías Certificados</h3>
+                <p>Todos nuestros guías son expertos locales certificados</p>
+            </div>
+            <div class="feature-card">
+                <h3>Experiencias Únicas</h3>
+                <p>Tours personalizados según tus intereses</p>
+            </div>
+            <div class="feature-card">
+                <h3>Garantía de Calidad</h3>
+                <p>100% satisfacción garantizada</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="logofooter">
+                    <a href="/index.html"><img src="/assets/logos/Logo transparente.png" alt="logo">Jouya tour</a>
+                </div>
+
+                <div class="social">
+                        <h3>Siguenos en</h3>
+                        <ul>
+                            <li><a href=""><i class="fa-brands fa-facebook-f"></i>Facebook</a></li>
+                            <li><a href=""><i class="fa-brands fa-instagram"></i>Instagram</a></li>
+                            <li><a href=""><i class="fa-brands fa-tiktok"></i>Tik tok</a></li>
+                            <li><a href=""><i class="fa-brands fa-twitter"></i>Twiter</a></li>
+                        </ul>
+                </div>
+            </div>
+            <div>
+                <h4>Destinos Populares</h4>
+                <p>Barcelona</p>
+                <p>Madrid</p>
+                <p>Sevilla</p>
+            </div>
+            <div id="contacto">
+                <h4>Contacto</h4>
+                <a href=""><i class="fa-brands fa-whatsapp"></i>WhatsApp</a>
+                <a href=""><i class="fa-solid fa-phone"></i>Telefono</a>
+                <a href=""><i class="fa-solid fa-envelope"></i>Correo</a>
+            </div>
+        </div>
+
+
+        <div class="credits">
+                <!-- Créditos de desarrollo -->
+                <p class="By"><strong>Developed by</strong> | Arnaldo Pushaina</p>
+                
+                <!-- Derechos reservados -->
+                <p class="text">©2024 | Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="/javascript/script_home.js"></script>
+
+    
+</body>
+</html>

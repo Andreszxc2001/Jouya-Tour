@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcelona - Jouya tour</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        :root {
+            --primary: #10b981;
+            --secondary: #059669;
+            --text: #1f2937;
+            --bg-light: #f9fafb;
+            --accent: #6366f1;
+            --whatsapp: #25D366;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Estilos del carrusel */
+        .carousel-container {
+            margin-top: 60px;
+            position: relative;
+            height: 70vh;
+            overflow: hidden;
+        }
+
+        .carousel {
+            height: 100%;
+            position: relative;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2rem;
+        }
+
+        .carousel-control {
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--text);
+        }
+
+        /* Contenido principal */
+        .destination-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .destination-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .destination-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .destination-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .destination-description {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .destination-sidebar {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 100px;
+        }
+
+        .attraction-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .attraction-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .attraction-content {
+            padding: 1.5rem;
+        }
+
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--whatsapp);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .price-info {
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .destination-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .carousel-container {
+                height: 50vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <h1>Jouya tour</h1>
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="#destinos">Destinos</a>
+                <a href="#guias">Guías</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="carousel-container">
+        <div class="carousel" id="destinationCarousel">
+            <!-- Las diapositivas se generarán dinámicamente -->
+        </div>
+        <div class="carousel-controls">
+            <button class="carousel-control prev" onclick="prevSlide()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-control next" onclick="nextSlide()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <main class="destination-content">
+        <div class="destination-header">
+            <h1>Descubre Barcelona</h1>
+            <p>La ciudad donde el arte, la arquitectura y la cultura cobran vida</p>
+        </div>
+
+        <div class="destination-grid">
+            <div class="destination-description">
+                <h2>Sobre Barcelona</h2>
+                <p>Barcelona, capital de Cataluña, es una ciudad mediterránea que combina la modernidad con una rica historia. Famosa por su arquitectura única, gastronomía excepcional y vibrante cultura, ofrece experiencias inolvidables para todo tipo de viajeros.</p>
+                
+                <h3 class="mt-4">Lugares Destacados</h3>
+                <div class="attraction-card">
+                    <img src="/api/placeholder/800/400" alt="Sagrada Familia" class="attraction-image">
+                    <div class="attraction-content">
+                        <h4>Sagrada Familia</h4>
+                        <p>La obra maestra inacabada de Gaudí, un templo único en el mundo que combina elementos góticos y modernistas en una síntesis arquitectónica sin precedentes.</p>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <img src="/api/placeholder/800/400" alt="Parque Güell" class="attraction-image">
+                    <div class="attraction-content">
+                        <h4>Parque Güell</h4>
+                        <p>Un parque público con hermosos jardines y elementos arquitectónicos diseñados por Antoni Gaudí, ofreciendo vistas panorámicas de la ciudad.</p>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <img src="/api/placeholder/800/400" alt="Las Ramblas" class="attraction-image">
+                    <div class="attraction-content">
+                        <h4>Las Ramblas</h4>
+                        <p>El paseo más famoso de Barcelona, lleno de vida, arte callejero, cafés y la esencia de la cultura catalana.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="destination-sidebar">
+                <h3>Reserva tu Tour</h3>
+                <div class="price-info">
+                    <p>Tours desde <span class="highlight">50€</span> por persona</p>
+                    <p>Duración: 4-8 horas</p>
+                    <p>Grupos reducidos</p>
+                    <p>Guía local experto</p>
+                </div>
+                <p>Incluye:</p>
+                <ul>
+                    <li>Guía certificado en español</li>
+                    <li>Entradas a monumentos</li>
+                    <li>Recogida en el hotel</li>
+                    <li>Degustación de productos locales</li>
+                </ul>
+                <a href="https://wa.me/1234567890" class="whatsapp-button" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Reservar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Datos del carrusel
+        const carouselImages = [
+            {
+                url: '/api/placeholder/1920/1080',
+                caption: 'Sagrada Familia - El símbolo de Barcelona'
+            },
+            {
+                url: '/api/placeholder/1920/1080',
+                caption: 'Parque Güell - Un paraíso modernista'
+            },
+            {
+                url: '/api/placeholder/1920/1080',
+                caption: 'Las Ramblas - El corazón de la ciudad'
+            },
+            {
+                url: '/api/placeholder/1920/1080',
+                caption: 'Barrio Gótico - Historia viva'
+            }
+        ];
+
+        let currentSlide = 0;
+
+        // Función para crear las diapositivas
+        function createSlides() {
+            const carousel = document.getElementById('destinationCarousel');
+            carouselImages.forEach((image, index) => {
+                const slide = document.createElement('div');
+                slide.className = `carousel-slide ${index === 0 ? 'active' : ''}`;
+                slide.style.backgroundImage = `url(${image.url})`;
+                
+                const caption = document.createElement('div');
+                caption.className = 'carousel-caption';
+                caption.innerHTML = `<h2>${image.caption}</h2>`;
+                
+                slide.appendChild(caption);
+                carousel.appendChild(slide);
+            });
+        }
+
+        // Función para mostrar la siguiente diapositiva
+        function nextSlide() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Función para mostrar la diapositiva anterior
+        function prevSlide() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Inicializar el carrusel
+        window.onload = function() {
+            createSlides();
+            // Cambiar automáticamente las diapositivas cada 5 segundos
+            setInterval(nextSlide, 5000);
+        };
+    </script>
+</body>
+</html>
