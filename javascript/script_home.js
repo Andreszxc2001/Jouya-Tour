@@ -40,43 +40,43 @@ const destinations = [
         },
       
     {
-        name: 'Sierra mamey',
-            description: 'La Ruta El Mamey es un recorrido turístico en la Sierra Nevada que combina cultura y aventura.',
+        name: 'Cbo de la Vela',
+            description: 'El Cabo de la Vela es un paraíso de playas y paisajes áridos en La Guajira.',
             guides: 45,
             tours: 120,
-            image: '/assets/images/sierra mamey 1.jpg',
+            image: '/assets/images/cabo de la vela.webp',
             URL: '/html/Destinations/Sierra_mamey.html'
     },
     {
-        name: 'Sierra mamey',
+        name: 'Santuario de FLamencos',
             description: 'La Ruta El Mamey es un recorrido turístico en la Sierra Nevada que combina cultura y aventura.',
             guides: 45,
             tours: 120,
-            image: '/assets/images/sierra mamey 1.jpg',
+            image: '/assets/images/Santuario dde flamencos.jpg',
             URL: '/html/Destinations/Sierra_mamey.html'
     },
     {
-        name: 'Sierra mamey',
+        name: 'Tour por la Guajira',
             description: 'La Ruta El Mamey es un recorrido turístico en la Sierra Nevada que combina cultura y aventura.',
             guides: 45,
             tours: 120,
-            image: '/assets/images/sierra mamey 1.jpg',
+            image: '/assets/images/la guajira.jpg',
             URL: '/html/Destinations/Sierra_mamey.html'
     },
     {
-        name: 'Sierra mamey',
+        name: 'Tour por Riohacha',
             description: 'La Ruta El Mamey es un recorrido turístico en la Sierra Nevada que combina cultura y aventura.',
             guides: 45,
             tours: 120,
-            image: '/assets/images/sierra mamey 1.jpg',
+            image: '/assets/images/Riohacha tour.jpeg',
             URL: '/html/Destinations/Sierra_mamey.html'
     },
     {
-        name: 'Sierra mamey',
+        name: 'Tour por Valledupar',
             description: 'La Ruta El Mamey es un recorrido turístico en la Sierra Nevada que combina cultura y aventura.',
             guides: 45,
             tours: 120,
-            image: '/assets/images/sierra mamey 1.jpg',
+            image: '/assets/images/Valledupar.jpg',
             URL: '/html/Destinations/Sierra_mamey.html'
     }
 ];
