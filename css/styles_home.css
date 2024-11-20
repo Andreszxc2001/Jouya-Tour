@@ -6,11 +6,11 @@
 }
 
 :root {
-    --primary: #10b981;
-    --secondary: #059669;
+    --primary: #00bf63;
+    --secondary: #00bf63;
     --text: #1f2937;
-    --bg-light: #f9fafb;
-    --accent: #6366f1;
+    --bg-light: #ffffff69;
+    --accent: #1f2937;
 }
 
 body {
@@ -32,8 +32,8 @@ body {
 }
 
 .logoindex img {
-    width: 70px;
-    height: 65px;
+    width: 60px;
+    height: 54px;
     float: left;
     padding: 0px;
 }
@@ -82,7 +82,7 @@ body {
     height: 0;
     bottom: 0;
     left: 0;
-    background-color: #1f2937; 
+    background-color: #00bf63; 
     opacity: 0.2;
     transition: height 0.3s ease;
     z-index: -1;
