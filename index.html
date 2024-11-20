@@ -6,8 +6,10 @@
     <!-- Cargar iconos de FontAwesome -->
     <script src="https://kit.fontawesome.com/3140323153.js" crossorigin="anonymous"></script>
 
+    <!-- Cargar CSS personalizado -->
     <link rel="stylesheet" href="/css/styles_home.css">
 
+    <!-- Cargar iconos para la app -->
     <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon//apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon//apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon//apple-icon-72x72.png">
@@ -22,9 +24,9 @@
     <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon//favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon//favicon-16x16.png">
 
-    <title>Jouya tour</title>
-    <a href="/assets/favicon/"></a>s
+    <title>Jouya Tours</title>
 </head>
+
 <body>
     <header>
         <nav class="navbar">
@@ -53,12 +55,12 @@
             <div class="search-box">
                 <select class="search-input" id="destinationSelect">
                     <option value="">Selecciona un destino</option>
-                    <option value="Pasadia-sierra-Mamey">Pasadia sierra Mamey</option>
+                    <option value="Sierra-Mamey">Pasadia sierra Mamey</option>
                     <option value="Cabo-vela">Cabo de la Vela</option>
                     <option value="Santuario-de-Flamencos">Santuario de Flamencos</option>
-                    <option value="la-Guajira">la Guajira</option>
-                    <option value="Tour-Riohacha">Tour por Riohacha</option>
-                    <option value="Tour-Valledupar">Tour por Valledupar</option>
+                    <option value="la-Guajira">Tour por la Guajira</option>
+                    <option value="Tour-Riohacha">City Tour Riohacha</option>
+                    <option value="Tour-Valledupar">City Tour Valledupar</option>
 
                 </select>
                 <button class="search-button" onclick="searchGuides()">
@@ -116,25 +118,25 @@
             <div class="social">
                 <h3>Siguenos en</h3>
                 <ul>
-                    <li><a href=""><i class="fa-brands fa-facebook-f"></i>Facebook</a></li>
-                    <li><a href=""><i class="fa-brands fa-instagram"></i>Instagram</a></li>
-                    <li><a href=""><i class="fa-brands fa-tiktok"></i>Tik tok</a></li>
-                    <li><a href=""><i class="fa-brands fa-twitter"></i>Twiter</a></li>
+                    <li><a href="" target="_blank"><i class="fa-brands fa-facebook-f"></i>Facebook</a></li>
+                    <li><a href="" target="_blank"><i class="fa-brands fa-instagram"></i>Instagram</a></li>
+                    <li><a href="" target="_blank"><i class="fa-brands fa-tiktok"></i>Tik tok</a></li>
+                    <li><a href="" target="_blank"><i class="fa-brands fa-twitter"></i>Twiter</a></li>
                 </ul>
             </div>
         </div>
         <div>
             <h4>Destinos Populares</h4>
-            <p>Barcelona</p>
-            <p>Madrid</p>
-            <p>Sevilla</p>
+            <p>Sierra Mamey</p>
+            <p>City Tour Riohacha</p>
+            <p>Cabo de la Vela</p>
         </div>
         <div class="contacto"  id="contacto">
             <h3>Contacto</h3>
         <ul>
-            <li><a href=""><i class="fa-brands fa-whatsapp"></i>WhatsApp</a></li>
-            <li><a href=""><i class="fa-solid fa-phone"></i>Telefono</a></li>
-            <li><a href=""><i class="fa-solid fa-envelope"></i>Correo</a></li>
+            <li><a href="" target="_blank"><i class="fa-brands fa-whatsapp"></i>WhatsApp</a></li>
+            <li><a href="" target="_blank"><i class="fa-solid fa-phone"></i>Telefono</a></li>
+            <li><a href="" target="_blank"><i class="fa-solid fa-envelope"></i>Correo</a></li>
         </ul>
         </div>
     </div>
@@ -149,33 +151,5 @@
 </footer>
 
 <script src="/javascript/script_home.js"></script>
-<script>
-    function searchGuides() {
-        const selectedDestination = document.getElementById('destinationSelect').value;
-        
-        if (!selectedDestination) {
-            alert('Por favor selecciona un destino');
-            return;
-        }
-    
-        // Objeto que mapea los destinos a sus respectivos archivos HTML
-        const destinationPages = {
-            'cabo-vela': '/destinos/cabo-vela.html',
-            'punta-gallinas': '/destinos/punta-gallinas.html',
-            'palomino': '/destinos/palomino.html',
-            'riohacha': '/destinos/riohacha.html'
-        };
-    
-        // Obtiene la URL correspondiente al destino seleccionado
-        const destinationUrl = destinationPages[selectedDestination];
-    
-        if (destinationUrl) {
-            window.location.href = destinationUrl;
-        } else {
-            // En caso de que el destino no tenga una página asignada
-            window.location.href = '/guides.html?destination=' + selectedDestination;
-        }
-    }
-</script>
 </body>
 </html>

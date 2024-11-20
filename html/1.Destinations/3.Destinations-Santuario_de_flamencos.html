@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcelona - Jouya Tour</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Enhanced Modern Design */
+        :root {
+            --primary: #10b981;
+            --secondary: #059669;
+            --text: #1f2937;
+            --text-light: #4b5563;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --accent: #6366f1;
+            --whatsapp: #25D366;
+            --transition: all 0.3s ease-in-out;
+            --border-radius: 12px;
+            --shadow-subtle: 0 4px 6px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        /* Enhanced Navbar */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            z-index: 1000;
+            box-shadow: var(--shadow-subtle);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .nav-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Enhanced Carousel */
+        .carousel-container {
+            margin-top: 80px;
+            height: 75vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: var(--transition);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-caption {
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 2rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2rem;
+            transform: translateY(-50%);
+        }
+
+        .carousel-control {
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .carousel-control:hover {
+            transform: scale(1.1);
+            background: white;
+        }
+
+        /* Main Content */
+        .destination-content {
+            max-width: 1280px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .destination-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .destination-description, .destination-sidebar {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-subtle);
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .destination-description:hover, .destination-sidebar:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+        }
+
+        .attraction-card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-subtle);
+            transition: var(--transition);
+        }
+
+        .attraction-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .attraction-card:hover .attraction-image {
+            transform: scale(1.05);
+        }
+
+        .attraction-content {
+            padding: 1.5rem;
+        }
+
+        .whatsapp-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            background: var(--whatsapp);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .whatsapp-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .destination-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .carousel-container {
+                height: 50vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-content">
+            <a href="#" class="nav-logo">Jouya Tour</a>
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="#destinos">Destinos</a>
+                <a href="#guias">Guías</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="carousel-container">
+        <div class="carousel" id="destinationCarousel">
+            <!-- Las diapositivas se generarán dinámicamente -->
+        </div>
+        <div class="carousel-controls">
+            <button class="carousel-control prev" onclick="prevSlide()">
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                <span class="sr-only">Anterior</span>
+            </button>
+            <button class="carousel-control next" onclick="nextSlide()">
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                <span class="sr-only">Siguiente</span>
+            </button>
+        </div>
+    </div>
+
+    <main class="destination-content">
+        <div class="destination-header">
+            <h1>Descubre Barcelona</h1>
+            <p>La ciudad donde el arte, la arquitectura y la cultura cobran vida</p>
+        </div>
+
+        <div class="destination-grid">
+            <div class="destination-description">
+                <h2>Sobre Barcelona</h2>
+                <p>Barcelona, capital de Cataluña, es una ciudad mediterránea que combina la modernidad con una rica historia. Famosa por su arquitectura única, gastronomía y vibrante vida urbana, ofrece una experiencia inigualable para los visitantes.</p>
+
+                <div class="attraction-card">
+                    <img src="sagrada-familia.jpg" alt="Sagrada Familia" class="attraction-image">
+                    <div class="attraction-content">
+                        <h4>Sagrada Familia</h4>
+                        <p>La obra maestra inacabada de Gaudí, conocida por su intrincada arquitectura y simbolismo.</p>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <img src="las-ramblas.jpg" alt="Las Ramblas" class="attraction-image">
+                    <div class="attraction-content">
+                        <h4>Las Ramblas</h4>
+                        <p>El icónico paseo peatonal de Barcelona, conocido por su animado ambiente, tiendas, artistas callejeros y restaurantes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="destination-sidebar">
+                <h2>Precio del Tour</h2>
+                <div class="price-info">
+                    <p>Desde <span class="highlight">€199</span> por persona</p>
+                </div>
+                <a href="https://wa.me/000000000000?text=¡Quiero reservar mi tour a Barcelona!" class="whatsapp-button">
+                    <i class="fab fa-whatsapp"></i> Reserva por WhatsApp
+                </a>
+            </aside>
+        </div>
+    </main>
+
+    <script>
+        // JavaScript para el carrusel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) slide.classList.add('active');
+            });
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 5000); // Cambia de imagen automáticamente cada 5 segundos
+
+        // Navbar cambia de color al hacer scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

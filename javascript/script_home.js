@@ -1,6 +1,7 @@
+// Datos de los guías turísticos
 const guides = [
     {
-        name: 'Elena Torres',
+        name: 'Arinda',
         specialty: ['Historia', 'Arte', 'Gastronomía'],
         location: 'Barcelona',
         rating: 4.9,
@@ -26,65 +27,66 @@ const guides = [
         price: '45$/hora',
         image: '/api/placeholder/400/300'
     }
-    
 ];
 
+// Datos de los destinos turísticos
 const destinations = [
-        {
-            name: 'Pasadia Sierra mamey',
-            description: 'La Ruta El Mamey es un recorrido turístico en la Sierra Nevada que combina cultura y aventura.',
-            guides: 45,
-            tours: 120,
-            image: '/assets/images/sierra mamey 2.jpg',
-            URL: '/html/Destinations/Sierra_mamey.html'
-        },
-      
     {
-        name: 'Cbo de la Vela',
-            description: 'El Cabo de la Vela es un paraíso de playas y paisajes áridos en La Guajira.',
-            guides: 45,
-            tours: 120,
-            image: '/assets/images/cabo de la vela.webp',
-            URL: '/html/Destinations/Sierra_mamey.html'
+        name: 'Sierra mamey',
+        description: 'La Ruta El Mamey es un recorrido turístico en la Sierra Nevada que combina cultura y aventura.',
+        guides: 45,
+        tours: 120,
+        image: '/assets/images/images-destinations/1.Sierra mamey.jpg',
+        URL: '/html/1.Destinations/1.Destinations-Sierra_mamey.html'
+    },
+    {
+        name: 'Cabo de la Vela',
+        description: 'El Cabo de la Vela es un paraíso de playas y paisajes áridos en La Guajira.',
+        guides: 45,
+        tours: 120,
+        image: '/assets/images/images-destinations/2.Cabo de la Vela.webp',
+        URL: '/html/1.Destinations/2.Destinations-Cabo_de_la_vela.html'
     },
     {
         name: 'Santuario de FLamencos',
-            description: 'La Ruta El Mamey es un recorrido turístico en la Sierra Nevada que combina cultura y aventura.',
-            guides: 45,
-            tours: 120,
-            image: '/assets/images/Santuario dde flamencos.jpg',
-            URL: '/html/Destinations/Sierra_mamey.html'
+        description: 'Refugio natural en La Guajira, hogar de flamencos rosados y rica biodiversidad.',
+        guides: 45,
+        tours: 120,
+        image: '/assets/images/images-destinations/3.Santuario dde Flamencos.jpg',
+        URL: '/html/1.Destinations/3.Destinations-Santuario_de_flamencos.html'
     },
     {
         name: 'Tour por la Guajira',
-            description: 'La Ruta El Mamey es un recorrido turístico en la Sierra Nevada que combina cultura y aventura.',
-            guides: 45,
-            tours: 120,
-            image: '/assets/images/la guajira.jpg',
-            URL: '/html/Destinations/Sierra_mamey.html'
+        description: 'Recorre La Guajira: playas, desiertos, cultura Wayuu y naturaleza.',
+        guides: 45,
+        tours: 120,
+        image: '/assets/images/images-destinations/4.Tour-Guajira.jpg',
+        URL: '/html/1.Destinations/4.Destinations-Tour_guajira.html'
     },
     {
-        name: 'Tour por Riohacha',
-            description: 'La Ruta El Mamey es un recorrido turístico en la Sierra Nevada que combina cultura y aventura.',
-            guides: 45,
-            tours: 120,
-            image: '/assets/images/Riohacha tour.jpeg',
-            URL: '/html/Destinations/Sierra_mamey.html'
+        name: 'City Tour Riohacha',
+        description: 'Descubre Riohacha: playas, cultura Wayuu, historia y belleza natural.',
+        guides: 45,
+        tours: 120,
+        image: '/assets/images/images-destinations/5.Tour-Riohacha.jpeg',
+        URL: '/html/1.Destinations/5.Destinations-Tour_Riohacha.html'
     },
     {
-        name: 'Tour por Valledupar',
-            description: 'La Ruta El Mamey es un recorrido turístico en la Sierra Nevada que combina cultura y aventura.',
-            guides: 45,
-            tours: 120,
-            image: '/assets/images/Valledupar.jpg',
-            URL: '/html/Destinations/Sierra_mamey.html'
+        name: 'City Tour Valledupar',
+        description: 'Valledupar: música vallenata, cultura, historia y paisajes únicos.',
+        guides: 45,
+        tours: 120,
+        image: '/assets/images/images-destinations/6.Tour-Valledupar.jpg',
+        URL: '/html/1.Destinations/6.Destinations-Tour_Valledupar.html'
     }
 ];
 
+// Función para crear una clasificación por estrellas para las valoraciones
 function createStarRating(rating) {
     return '★'.repeat(Math.floor(rating)) + (rating % 1 >= 0.5 ? '★' : '');
 }
 
+// Función para renderizar los guías en la interfaz de usuario
 function renderGuides() {
     const guidesGrid = document.getElementById('guidesGrid');
     guidesGrid.innerHTML = guides.map(guide => `
@@ -107,6 +109,7 @@ function renderGuides() {
     `).join('');
 }
 
+// Función para renderizar los destinos en la interfaz de usuario
 function renderDestinations() {
     const destinationsGrid = document.getElementById('destinationsGrid');
     destinationsGrid.innerHTML = destinations.map(destination => `
@@ -126,7 +129,7 @@ function renderDestinations() {
     `).join('');
 }
 
-// Animación suave para el scroll del menú
+// Función para la animación de desplazamiento suave al hacer clic en enlaces del menú
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -136,9 +139,38 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Inicializar la página
+// Inicialización de la página: renderiza los guías y destinos cuando la página carga
 window.onload = function() {
     renderGuides();
     renderDestinations();
 };
 
+// Función para realizar la búsqueda de guías en función del destino seleccionado
+function searchGuides() {
+    const selectedDestination = document.getElementById('destinationSelect').value;
+    
+    if (!selectedDestination) {
+        alert('Por favor selecciona un destino');
+        return;
+    }
+
+    // Objeto que mapea los destinos a sus respectivos archivos HTML
+    const destinationPages = {
+        'Sierra-Mamey': '/html/1.Destinations/1.Destinations-Sierra_mamey.html',
+        'Cabo-vela': '/html/1.Destinations/2.Destinations-Cabo_de_la_vela.html',
+        'Santuario-de-Flamencos': '/html/1.Destinations/3.Destinations-Santuario_de_flamencos.html',
+        'la-Guajira': '/html/1.Destinations/4.Destinations-Tour_guajira.html',
+        'Tour-Riohacha': '/html/1.Destinations/5.Destinations-Tour_Riohacha.html',
+        'Tour-Valledupar': '/html/1.Destinations/6.Destinations-Tour_Valledupar.html',
+    };
+
+    // Obtiene la URL correspondiente al destino seleccionado
+    const destinationUrl = destinationPages[selectedDestination];
+
+    if (destinationUrl) {
+        window.location.href = destinationUrl;
+    } else {
+        // En caso de que el destino no tenga una página asignada
+        window.location.href = '/guides.html?destination=' + selectedDestination;
+    }
+}
