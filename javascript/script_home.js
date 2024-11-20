@@ -35,7 +35,7 @@ const destinations = [
             description: 'La Ruta El Mamey es un recorrido turístico en la Sierra Nevada que combina cultura y aventura.',
             guides: 45,
             tours: 120,
-            image: '/assets/images/sierra mamey 1.jpg',
+            image: '/assets/images/sierra mamey 2.jpg',
             URL: '/html/Destinations/Sierra_mamey.html'
         },
       

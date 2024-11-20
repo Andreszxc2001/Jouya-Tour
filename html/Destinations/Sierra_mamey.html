@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barcelona - Jouya tour</title>
+    <title>Barcelona - Jouya Tour</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Estilos generales */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
 
         :root {
@@ -18,24 +20,35 @@
             --secondary: #059669;
             --text: #1f2937;
             --bg-light: #f9fafb;
+            --bg-dark: #111827;
             --accent: #6366f1;
             --whatsapp: #25D366;
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
         body {
             background-color: var(--bg-light);
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
+        /* Barra de navegación */
         .navbar {
-            background: white;
+            background-color: #fff;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             padding: 1rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-light);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        .navbar.scrolled {
+            background-color: #f3f4f6;
+            box-shadow: var(--shadow-hover);
         }
 
         .nav-content {
@@ -44,6 +57,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            text-decoration: none;
         }
 
         .nav-links {
@@ -55,24 +75,31 @@
             color: var(--text);
             text-decoration: none;
             font-weight: 500;
+            transition: color 0.3s, transform 0.3s;
         }
 
-        /* Estilos del carrusel */
+        .nav-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Carrusel */
         .carousel-container {
-            margin-top: 60px;
+            margin-top: 80px;
             position: relative;
             height: 70vh;
             overflow: hidden;
         }
 
         .carousel {
+            display: flex;
             height: 100%;
             position: relative;
         }
 
         .carousel-slide {
-            position: absolute;
-            width: 100%;
+            flex: 1;
+            min-width: 100%;
             height: 100%;
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
@@ -89,9 +116,12 @@
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 2rem;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: white;
+            padding: 1.5rem;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: #fff;
+            text-align: center;
+            font-size: 1.2rem;
+            border-radius: 0 0 10px 10px;
         }
 
         .carousel-controls {
@@ -101,21 +131,27 @@
             transform: translateY(-50%);
             display: flex;
             justify-content: space-between;
-            padding: 0 2rem;
+            padding: 0 1rem;
         }
 
         .carousel-control {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.8);
             border: none;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             color: var(--text);
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .carousel-control:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
         }
 
         /* Contenido principal */
@@ -131,8 +167,14 @@
         }
 
         .destination-header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .destination-header p {
+            font-size: 1.2rem;
+            color: var(--text);
         }
 
         .destination-grid {
@@ -142,34 +184,34 @@
             margin-bottom: 3rem;
         }
 
-        .destination-description {
-            background: white;
+        .destination-description, .destination-sidebar {
+            background: #fff;
             padding: 2rem;
             border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-light);
+            transition: box-shadow 0.3s;
         }
 
-        .destination-sidebar {
-            background: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 100px;
+        .destination-description:hover, .destination-sidebar:hover {
+            box-shadow: var(--shadow-hover);
         }
 
         .attraction-card {
-            background: white;
             border-radius: 1rem;
             overflow: hidden;
             margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-light);
         }
 
         .attraction-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .attraction-card:hover .attraction-image {
+            transform: scale(1.05);
         }
 
         .attraction-content {
@@ -181,17 +223,18 @@
             align-items: center;
             gap: 0.5rem;
             background: var(--whatsapp);
-            color: white;
+            color: #fff;
             padding: 1rem 2rem;
             border-radius: 0.5rem;
             text-decoration: none;
             font-weight: 600;
             margin-top: 1rem;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .whatsapp-button:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
         }
 
         .price-info {
@@ -199,6 +242,8 @@
             padding: 1rem;
             border-radius: 0.5rem;
             margin: 1rem 0;
+            text-align: center;
+            font-size: 1.3rem;
         }
 
         .highlight {
@@ -206,25 +251,30 @@
             font-weight: 600;
         }
 
+        /* Media queries */
         @media (max-width: 768px) {
             .destination-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .carousel-container {
+                height: 50vh;
             }
 
             .nav-links {
                 display: none;
             }
 
-            .carousel-container {
-                height: 50vh;
+            .destination-header h1 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-content">
-            <h1>Jouya tour</h1>
+            <a href="#" class="nav-logo">Jouya Tour</a>
             <div class="nav-links">
                 <a href="index.html">Inicio</a>
                 <a href="#destinos">Destinos</a>
@@ -240,10 +290,12 @@
         </div>
         <div class="carousel-controls">
             <button class="carousel-control prev" onclick="prevSlide()">
-                <i class="fas fa-chevron-left"></i>
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                <span class="sr-only">Anterior</span>
             </button>
             <button class="carousel-control next" onclick="nextSlide()">
-                <i class="fas fa-chevron-right"></i>
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                <span class="sr-only">Siguiente</span>
             </button>
         </div>
     </div>
@@ -257,119 +309,70 @@
         <div class="destination-grid">
             <div class="destination-description">
                 <h2>Sobre Barcelona</h2>
-                <p>Barcelona, capital de Cataluña, es una ciudad mediterránea que combina la modernidad con una rica historia. Famosa por su arquitectura única, gastronomía excepcional y vibrante cultura, ofrece experiencias inolvidables para todo tipo de viajeros.</p>
-                
-                <h3 class="mt-4">Lugares Destacados</h3>
+                <p>Barcelona, capital de Cataluña, es una ciudad mediterránea que combina la modernidad con una rica historia. Famosa por su arquitectura única, gastronomía y vibrante vida urbana, ofrece una experiencia inigualable para los visitantes.</p>
+
                 <div class="attraction-card">
-                    <img src="/api/placeholder/800/400" alt="Sagrada Familia" class="attraction-image">
+                    <img src="sagrada-familia.jpg" alt="Sagrada Familia" class="attraction-image">
                     <div class="attraction-content">
                         <h4>Sagrada Familia</h4>
-                        <p>La obra maestra inacabada de Gaudí, un templo único en el mundo que combina elementos góticos y modernistas en una síntesis arquitectónica sin precedentes.</p>
+                        <p>La obra maestra inacabada de Gaudí, conocida por su intrincada arquitectura y simbolismo.</p>
                     </div>
                 </div>
 
                 <div class="attraction-card">
-                    <img src="/api/placeholder/800/400" alt="Parque Güell" class="attraction-image">
-                    <div class="attraction-content">
-                        <h4>Parque Güell</h4>
-                        <p>Un parque público con hermosos jardines y elementos arquitectónicos diseñados por Antoni Gaudí, ofreciendo vistas panorámicas de la ciudad.</p>
-                    </div>
-                </div>
-
-                <div class="attraction-card">
-                    <img src="/api/placeholder/800/400" alt="Las Ramblas" class="attraction-image">
+                    <img src="las-ramblas.jpg" alt="Las Ramblas" class="attraction-image">
                     <div class="attraction-content">
                         <h4>Las Ramblas</h4>
-                        <p>El paseo más famoso de Barcelona, lleno de vida, arte callejero, cafés y la esencia de la cultura catalana.</p>
+                        <p>El icónico paseo peatonal de Barcelona, conocido por su animado ambiente, tiendas, artistas callejeros y restaurantes.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="destination-sidebar">
-                <h3>Reserva tu Tour</h3>
+            <aside class="destination-sidebar">
+                <h2>Precio del Tour</h2>
                 <div class="price-info">
-                    <p>Tours desde <span class="highlight">50€</span> por persona</p>
-                    <p>Duración: 4-8 horas</p>
-                    <p>Grupos reducidos</p>
-                    <p>Guía local experto</p>
+                    <p>Desde <span class="highlight">€199</span> por persona</p>
                 </div>
-                <p>Incluye:</p>
-                <ul>
-                    <li>Guía certificado en español</li>
-                    <li>Entradas a monumentos</li>
-                    <li>Recogida en el hotel</li>
-                    <li>Degustación de productos locales</li>
-                </ul>
-                <a href="https://wa.me/1234567890" class="whatsapp-button" target="_blank">
-                    <i class="fab fa-whatsapp"></i>
-                    Reservar por WhatsApp
+                <a href="https://wa.me/000000000000?text=¡Quiero reservar mi tour a Barcelona!" class="whatsapp-button">
+                    <i class="fab fa-whatsapp"></i> Reserva por WhatsApp
                 </a>
-            </div>
+            </aside>
         </div>
     </main>
 
     <script>
-        // Datos del carrusel
-        const carouselImages = [
-            {
-                url: '/api/placeholder/1920/1080',
-                caption: 'Sagrada Familia - El símbolo de Barcelona'
-            },
-            {
-                url: '/api/placeholder/1920/1080',
-                caption: 'Parque Güell - Un paraíso modernista'
-            },
-            {
-                url: '/api/placeholder/1920/1080',
-                caption: 'Las Ramblas - El corazón de la ciudad'
-            },
-            {
-                url: '/api/placeholder/1920/1080',
-                caption: 'Barrio Gótico - Historia viva'
-            }
-        ];
-
+        // JavaScript para el carrusel
         let currentSlide = 0;
-
-        // Función para crear las diapositivas
-        function createSlides() {
-            const carousel = document.getElementById('destinationCarousel');
-            carouselImages.forEach((image, index) => {
-                const slide = document.createElement('div');
-                slide.className = `carousel-slide ${index === 0 ? 'active' : ''}`;
-                slide.style.backgroundImage = `url(${image.url})`;
-                
-                const caption = document.createElement('div');
-                caption.className = 'carousel-caption';
-                caption.innerHTML = `<h2>${image.caption}</h2>`;
-                
-                slide.appendChild(caption);
-                carousel.appendChild(slide);
+        const slides = document.querySelectorAll('.carousel-slide');
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) slide.classList.add('active');
             });
         }
 
-        // Función para mostrar la siguiente diapositiva
-        function nextSlide() {
-            const slides = document.querySelectorAll('.carousel-slide');
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-
-        // Función para mostrar la diapositiva anterior
         function prevSlide() {
-            const slides = document.querySelectorAll('.carousel-slide');
-            slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
+            showSlide(currentSlide);
         }
 
-        // Inicializar el carrusel
-        window.onload = function() {
-            createSlides();
-            // Cambiar automáticamente las diapositivas cada 5 segundos
-            setInterval(nextSlide, 5000);
-        };
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 5000); // Cambia de imagen automáticamente cada 5 segundos
+
+        // Navbar cambia de color al hacer scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
     </script>
 </body>
 </html>
