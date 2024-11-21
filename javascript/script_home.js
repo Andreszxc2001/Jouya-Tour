@@ -6,7 +6,9 @@ const guides = [
         location: 'Riohacha',
         rating: 4.9,
         reviews: 156,
-        image: '/api/placeholder/400/300'
+        price: '50€/hora',
+        image: '/api/placeholder/400/300',
+        URL: '/html/guia-arinda-vangrieken.html'
     },
     {
         name: 'Miguel Ángel Ruiz',
@@ -15,7 +17,8 @@ const guides = [
         rating: 4.8,
         reviews: 123,
         price: '50€/hora',
-        image: '/assets/images/WhatsApp Image 2024-11-06 at 9.09.45 AM.jpeg'
+        image: '/assets/images/WhatsApp Image 2024-11-06 at 9.09.45 AM.jpeg',
+        URL: '/html/guia-miguel-angel-ruiz.html'
     },
     {
         name: 'Carmen Vega',
@@ -24,7 +27,8 @@ const guides = [
         rating: 4.9,
         reviews: 98,
         price: '45$/hora',
-        image: '/api/placeholder/400/300'
+        image: '/api/placeholder/400/300',
+        URL: '/html/guia-carmen-vega.html'
     }
 ];
 
@@ -90,6 +94,7 @@ function renderGuides() {
     const guidesGrid = document.getElementById('guidesGrid');
     guidesGrid.innerHTML = guides.map(guide => `
         <div class="guide-card">
+        <a href="/path/to/${guide.name}.html">
             <img src="${guide.image}" alt="${guide.name}" class="guide-image">
             <div class="guide-info">
                 <h3>${guide.name}</h3>
@@ -104,9 +109,11 @@ function renderGuides() {
                 </div>
                 <div class="price-tag">${guide.price}</div>
             </div>
+            </a>
         </div>
     `).join('');
 }
+
 
 // Función para renderizar los destinos en la interfaz de usuario
 function renderDestinations() {

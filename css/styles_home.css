@@ -277,11 +277,16 @@ body {
     padding: 4rem 2rem; /* Espaciado interno */
 }
 
+
 .guides-container {
     max-width: 1200px; /* Ancho máximo */
     margin: 0 auto; /* Centrado horizontal */
 }
 
+.guides-grid a {
+    text-decoration: none; /* Sin subrayado en los enlaces */
+    color: inherit; /* Color de texto heredado */
+}
 .guides-grid {
     display: grid; /* Disposición en cuadrícula */
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Columnas ajustables automáticamente */
