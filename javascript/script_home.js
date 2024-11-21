@@ -1,14 +1,14 @@
 // Datos de los guías turísticos
 const guides = [
     {
-        name: 'Arinda vangrieken ',
-        specialty: ['Guia Jefe'],
+        name: 'Sierra Mamey',
+        specialty: [''],
         location: 'Riohacha',
         rating: 4.9,
         reviews: 156,
         price: '50€/hora',
         image: '/api/placeholder/400/300',
-        URL: '/html/guia-arinda-vangrieken.html'
+        URL: '/html/1.Destinations/1.Destinations-Sierra_mamey.html'
     },
     {
         name: 'Miguel Ángel Ruiz',
@@ -18,7 +18,7 @@ const guides = [
         reviews: 123,
         price: '50€/hora',
         image: '/assets/images/WhatsApp Image 2024-11-06 at 9.09.45 AM.jpeg',
-        URL: '/html/guia-miguel-angel-ruiz.html'
+        URL: '/html/1.Destinations/2.Destinations-Cabo_de_la_vela.html'
     },
     {
         name: 'Carmen Vega',
@@ -28,7 +28,7 @@ const guides = [
         reviews: 98,
         price: '45$/hora',
         image: '/api/placeholder/400/300',
-        URL: '/html/guia-carmen-vega.html'
+        URL: '/html/1.Destinations/6.Destinations-Tour_Valledupar.html'
     }
 ];
 
