@@ -1,12 +1,11 @@
 // Datos de los guías turísticos
 const guides = [
     {
-        name: 'Arinda',
-        specialty: ['Historia', 'Arte', 'Gastronomía'],
-        location: 'Barcelona',
+        name: 'Arinda vangrieken ',
+        specialty: ['Guia Jefe'],
+        location: 'Riohacha',
         rating: 4.9,
         reviews: 156,
-        price: '55€/hora',
         image: '/api/placeholder/400/300'
     },
     {
