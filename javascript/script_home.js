@@ -1,33 +1,33 @@
 // Datos de los guías turísticos
 const guides = [
     {
-        name: 'Sierra Mamey',
-        specialty: [''],
-        location: 'Riohacha',
+        name: 'SIERRA MAMEY',
+        specialty: ['Alimentacion +', 'Hospedaje', '+ Transporte'],
+        location: 'Dibulla',
         rating: 4.9,
         reviews: 156,
-        price: '50€/hora',
-        image: '/api/placeholder/400/300',
+        price: '$300,000 COP/Dia',
+        image: '/assets/images/images-destinations/1.Precios sierra mamey.jpg',
         URL: '/html/1.Destinations/1.Destinations-Sierra_mamey.html'
     },
     {
-        name: 'Miguel Ángel Ruiz',
-        specialty: ['Arquitectura', 'Fotografía'],
-        location: 'Madrid',
-        rating: 4.8,
-        reviews: 123,
-        price: '50€/hora',
-        image: '/assets/images/WhatsApp Image 2024-11-06 at 9.09.45 AM.jpeg',
+        name: 'CABO DE LA VELA',
+        specialty: ['Hospedaje +', 'Alimentacion', '+ Tour 4x4'],
+        location: 'Cabo de la Vela',
+        rating: 4.9,
+        reviews: 156,
+        price: '$550,000 COP/ 2 Dias',
+        image: '/assets/images/images-destinations/2.Precios cabo de la Vela.png',
         URL: '/html/1.Destinations/2.Destinations-Cabo_de_la_vela.html'
     },
     {
-        name: 'Carmen Vega',
-        specialty: ['Cultura Local', 'Gastronomía'],
-        location: 'Sevilla',
+        name: 'VALLEDUPAR',
+        specialty: ['Comida+', 'Estadia', '+Transportes'],
+        location: 'Valledupar',
         rating: 4.9,
-        reviews: 98,
-        price: '45$/hora',
-        image: '/api/placeholder/400/300',
+        reviews: 156,
+        price: '$450,000 COP',
+        image: '/assets/images/images-destinations/6.Precios tour-Valledupar.webp.png',
         URL: '/html/1.Destinations/6.Destinations-Tour_Valledupar.html'
     }
 ];
@@ -92,9 +92,11 @@ function createStarRating(rating) {
 // Función para renderizar los guías en la interfaz de usuario
 function renderGuides() {
     const guidesGrid = document.getElementById('guidesGrid');
-    guidesGrid.innerHTML = guides.map(guide => `
-        <div class="guide-card">
-        <a href="/path/to/${guide.name}.html">
+    // ...
+
+guidesGrid.innerHTML = guides.map(guide => `
+    <div class="guide-card">
+        <a href="${guide.URL}" class="guide-link">
             <img src="${guide.image}" alt="${guide.name}" class="guide-image">
             <div class="guide-info">
                 <h3>${guide.name}</h3>
@@ -103,15 +105,25 @@ function renderGuides() {
                         <span class="category-tag">${spec}</span>
                     `).join('')}
                 </div>
-                <p>${guide.location}</p>
+                <p><i class="fa-solid fa-location-dot"></i>${guide.location}</p>
                 <div class="guide-rating">
                     ${createStarRating(guide.rating)} (${guide.reviews} reseñas)
                 </div>
                 <div class="price-tag">${guide.price}</div>
             </div>
-            </a>
-        </div>
-    `).join('');
+        </a>
+    </div>
+`).join('');
+
+// Agrega un evento de clic a cada enlace
+document.querySelectorAll('.guide-link').forEach(link => {
+    link.addEventListener('click', event => {
+        // Obtén la URL del enlace
+        const url = link.getAttribute('href');
+        // Redirige al usuario a la URL correspondiente
+        window.location.href = url;
+    });
+});
 }
 
 

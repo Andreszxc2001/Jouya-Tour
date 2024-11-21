@@ -106,18 +106,30 @@ body {
 
 /* Estilos de la sección hero */
 .hero {
-    height: 100vh; /* Altura del viewport completo */
-    display: flex; /* Flexbox para centrar contenido */
-    align-items: center; /* Centra verticalmente */
+    height: 100vh;
+    display: flex;
+    align-items: center;
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                url('/assets/images/Backgrounts_images/Pagina\ principal.jpg'); /* Imagen de fondo con degradado */
-    background-size: cover; /* Cubre todo el área */
-    background-position: center; /* Centra la imagen */
-    color: white; /* Texto en blanco */
-    text-align: center; /* Centra el texto */
-    padding-top: 4rem; /* Espaciado superior */
+                url('/assets/images/Backgrounts_images/Pagina\ principal.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding-top: 4rem;
+    animation: zoom 10s infinite;
 }
 
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 /* Contenedor principal de contenido hero */
 .hero-content {
     max-width: 800px; /* Ancho máximo del contenido */
