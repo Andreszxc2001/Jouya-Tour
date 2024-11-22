@@ -1,256 +1,284 @@
+/* Estilos de la sección hero */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('/assets/images/Backgrounts_images/Pagina principal.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding-top: 4rem;
+    animation: zoom 10s infinite;
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+
+/* Contenedor principal de contenido hero */
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+}
 
 /* Estilos de la caja de búsqueda */
 .search-box {
-    background: white; /* Fondo blanco */
-    padding: 2rem; /* Espaciado interno */
-    border-radius: 1rem; /* Bordes redondeados */
-    margin-top: 2rem; /* Margen superior */
-    display: flex; /* Flexbox para disposición de elementos */
-    gap: 1rem; /* Espaciado entre elementos */
-    flex-wrap: wrap; /* Permite el ajuste en líneas múltiples */
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 /* Estilos específicos para el campo select en la búsqueda */
 .search-box select.search-input {
-    flex: 1; /* Se ajusta al espacio disponible */
-    min-width: 200px; /* Ancho mínimo */
-    padding: 1rem; /* Espaciado interno */
-    border: 2px solid #e5e7eb; /* Borde con color gris claro */
-    border-radius: 0.5rem; /* Bordes redondeados */
-    font-size: 1rem; /* Tamaño de fuente estándar */
-    background-color: white; /* Fondo blanco */
-    cursor: pointer; /* Cambia el cursor al pasar el mouse */
-    appearance: none; /* Elimina estilo predeterminado del navegador */
-    background-image: url("data:image/svg+xml,%3Csvg ..."); /* Icono de flecha personalizado */
-    background-repeat: no-repeat; /* Evita repetir la imagen */
-    background-position: right 1rem center; /* Posiciona la flecha */
-    padding-right: 2.5rem; /* Espaciado derecho para la flecha */
+    flex: 1;
+    min-width: 200px;
+    padding: 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    background-color: white;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg ...");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
 }
 
 .search-box select.search-input:focus {
-    outline: none; /* Elimina contorno predeterminado */
-    border-color: var(--accent); /* Cambia color del borde al enfocar */
+    outline: none;
+    border-color: var(--accent);
 }
 
 .search-box select.search-input option {
-    padding: 0.5rem; /* Espaciado interno en las opciones */
+    padding: 0.5rem;
 }
 
 /* Botón de búsqueda */
 .search-button {
-    background: var(--accent); /* Fondo con color de acento */
-    color: white; /* Texto blanco */
-    padding: 1rem 2rem; /* Espaciado interno */
-    border: none; /* Sin bordes */
-    border-radius: 0.5rem; /* Bordes redondeados */
-    cursor: pointer; /* Cursor interactivo */
-    font-weight: 600; /* Peso de fuente medio-alto */
-    transition: background-color 0.3s; /* Transición suave en color de fondo */
+    background: var(--accent);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
 }
 
 .search-button:hover {
-    background: var(--secondary); /* Cambia el fondo al pasar el mouse */
+    background: var(--secondary);
 }
 
 /* Sección de características */
 .features {
-    padding: 4rem 2rem; /* Espaciado interno */
-    max-width: 1200px; /* Ancho máximo */
-    margin: 0 auto; /* Centrado horizontal */
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .features-grid {
-    display: grid; /* Disposición en cuadrícula */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas ajustables según espacio */
-    gap: 2rem; /* Espaciado entre elementos */
-    margin-top: 2rem; /* Margen superior */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 /* Tarjetas de características */
 .feature-card {
-    background: white; /* Fondo blanco */
-    padding: 2rem; /* Espaciado interno */
-    border-radius: 1rem; /* Bordes redondeados */
-    text-align: center; /* Texto centrado */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra ligera */
-    transition: transform 0.3s; /* Transición suave en transformación */
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
 }
 
 .feature-card:hover {
-    transform: translateY(-5px); /* Eleva la tarjeta al pasar el mouse */
+    transform: translateY(-5px);
 }
 
 /* Sección de destinos */
 .destinations {
-    padding: 4rem 2rem; /* Espaciado interno */
-    background: var(--bg-light); /* Fondo claro */
+    padding: 4rem 2rem;
+    background: var(--bg-light);
 }
 
 .destinations-container {
-    max-width: 1200px; /* Ancho máximo */
-    margin: 0 auto; /* Centrado horizontal */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .destinations-grid {
-    display: grid; /* Disposición en cuadrícula */
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Columnas ajustables automáticamente */
-    gap: 2rem; /* Espaciado entre elementos */
-    margin-top: 2rem; /* Margen superior */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 /* Tarjetas de destinos */
 .destination-card {
-    position: relative; /* Posición relativa para superposiciones */
-    border-radius: 1rem; /* Bordes redondeados */
-    overflow: hidden; /* Oculta contenido que exceda los bordes */
-    height: 400px; /* Altura fija */
-    cursor: pointer; /* Cursor interactivo */
-    transition: transform 0.3s; /* Transición suave en transformación */
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    height: 400px;
+    cursor: pointer;
+    transition: transform 0.3s;
 }
 
 .destination-card:hover {
-    transform: translateY(-5px); /* Eleva la tarjeta al pasar el mouse */
+    transform: translateY(-5px);
 }
 
 .destination-image {
-    width: 100%; /* Ancho completo */
-    height: 100%; /* Altura completa */
-    object-fit: cover; /* Ajusta la imagen sin deformarla */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* Información de las tarjetas de destino */
 .destination-info {
-    position: absolute; /* Posición absoluta dentro de la tarjeta */
-    bottom: 0; /* Pegada al borde inferior */
-    left: 0; /* Pegada al borde izquierdo */
-    right: 0; /* Pegada al borde derecho */
-    padding: 2rem; /* Espaciado interno */
-    background: linear-gradient(transparent, rgba(0,0,0,0.8)); /* Degradado de fondo */
-    color: white; /* Texto blanco */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
 }
 
 .destination-info h3 {
-    font-size: 1.5rem; /* Tamaño del título */
-    margin-bottom: 0.5rem; /* Espacio inferior */
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .destination-stats {
-    display: flex; /* Flexbox para disposición horizontal */
-    gap: 1rem; /* Espacio entre elementos */
-    font-size: 0.875rem; /* Tamaño pequeño de texto */
+    display: flex;
+    gap: 1rem;
+    font-size: 0.875rem;
 }
 
 /* Sección de guías */
 .guides-section {
-    background: white; /* Fondo blanco */
-    padding: 4rem 2rem; /* Espaciado interno */
+    background: white;
+    padding: 4rem 2rem;
 }
-
-
+.guides-section a {
+    text-decoration: none;
+    color: #1f2937;
+}
 .guides-container {
-    max-width: 1200px; /* Ancho máximo */
-    margin: 0 auto; /* Centrado horizontal */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.guides-grid a {
-    text-decoration: none; /* Sin subrayado en los enlaces */
-    color: inherit; /* Color de texto heredado */
-}
 .guides-grid {
-    display: grid; /* Disposición en cuadrícula */
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Columnas ajustables automáticamente */
-    gap: 2rem; /* Espaciado entre elementos */
-    margin-top: 2rem; /* Margen superior */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-/* Tarjetas de guías */
 .guide-card {
-    border-radius: 1rem; /* Bordes redondeados */
-    overflow: hidden; /* Oculta contenido excedente */
-    background: var(--bg-light); /* Fondo claro */
-    transition: transform 0.3s; /* Transición suave en transformación */
+    border-radius: 1rem;
+    overflow: hidden;
+    background: var(--bg-light);
+    transition: transform 0.3s;
 }
 
 .guide-card:hover {
-    transform: translateY(-5px); /* Eleva la tarjeta al pasar el mouse */
+    transform: translateY(-5px);
 }
 
-/* Imagen dentro de las guías */
 .guide-image {
-    width: 100%; /* Ancho completo */
-    height: 250px; /* Altura fija */
-    object-fit: cover; /* Ajusta la imagen sin deformarla */
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
 }
 
-/* Información de las guías */
 .guide-info {
-    padding: 1.5rem; /* Espaciado interno */
+    padding: 1.5rem;
 }
 
 .guide-rating {
-    color: #fbbf24; /* Color amarillo para la calificación */
-    margin: 0.5rem 0; /* Espaciado vertical */
+    color: #fbbf24;
+    margin: 0.5rem 0;
 }
 
 /* Etiqueta de precio */
 .price-tag {
-    background: var(--primary); /* Fondo con color primario */
-    color: white; /* Texto blanco */
-    padding: 0.5rem 1rem; /* Espaciado interno */
-    border-radius: 2rem; /* Bordes redondeados */
-    display: inline-block; /* Elemento en línea con bloque */
-    margin-top: 1rem; /* Margen superior */
+    background: var(--primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    display: inline-block;
+    margin-top: 1rem;
 }
 
-/* Sección de categorías */
+/* Categorías */
 .categories-section {
-    padding: 4rem 2rem; /* Espaciado interno */
-    background: var(--bg-light); /* Fondo claro */
+    padding: 4rem 2rem;
+    background: var(--bg-light);
 }
 
 .categories-container {
-    max-width: 1200px; /* Ancho máximo */
-    margin: 0 auto; /* Centrado horizontal */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .categories-grid {
-    display: grid; /* Disposición en cuadrícula */
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Columnas ajustables automáticamente */
-    gap: 2rem; /* Espaciado entre elementos */
-    margin-top: 2rem; /* Margen superior */
-}
-
-/* Tarjetas de categorías */
-.category-card {
-    position: relative; /* Posición relativa para superposiciones */
-    border-radius: 1rem; /* Bordes redondeados */
-    overflow: hidden; /* Oculta contenido excedente */
-    cursor: pointer; /* Cursor interactivo */
-    transition: transform 0.3s; /* Transición suave en transformación */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 .category-card:hover {
-    transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el mouse */
+    transform: scale(1.05);
 }
 
-.category-image {
-    width: 100%; /* Ancho completo */
-    height: 200px; /* Altura fija */
-    object-fit: cover; /* Ajusta la imagen sin deformarla */
+/* Estilos Responsive */
+@media (max-width: 1024px) {
+    .hero {
+        height: auto;
+        padding-top: 2rem;
+    }
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    .search-box {
+        flex-direction: column;
+    }
+    .features-grid, .destinations-grid, .guides-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
 }
 
-.category-info {
-    position: absolute; /* Posición absoluta dentro de la tarjeta */
-    bottom: 0; /* Pegada al borde inferior */
-    left: 0; /* Pegada al borde izquierdo */
-    right: 0; /* Pegada al borde derecho */
-    padding: 1.5rem; /* Espaciado interno */
-    background: linear-gradient(transparent, rgba(0,0,0,0.7)); /* Degradado de fondo */
-    color: white; /* Texto blanco */
-    text-align: center; /* Texto centrado */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .search-box select {
+        font-size: 0.9rem;
+    }
 }
-
-.category-info h3 {
-    font-size: 1.25rem; /* Tamaño del título */
-}
-

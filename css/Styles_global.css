@@ -37,10 +37,9 @@ body {
 }
 
 .logoindex img {
-    width: 60px; /* Ancho de la imagen */
+    width: 56px; /* Ancho de la imagen */
     height: 54px; /* Alto de la imagen */
     float: left; /* Flota a la izquierda */
-    padding: 0px; /* Elimina padding */
 }
 
 /* Estilos de la barra de navegación */
@@ -52,6 +51,9 @@ body {
     z-index: 1000; /* Nivel de pila alto para superposición */
     padding: 1rem; /* Espaciado interno */
     box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Sombra ligera */
+    display: flex; /* Flexbox para organizar elementos */
+    justify-content: space-between 20px; /* Espaciado entre los elementos */
+    align-items: center; /* Alinea verticalmente */
 }
 
 .nav-content {
@@ -80,6 +82,42 @@ body {
     position: relative; /* Posición relativa para pseudo-elementos */
     padding: 5px 10px; /* Espaciado interno */
     transition: all 0.3s ease; /* Transición suave */
+}
+
+/* Media query para pantalla pequeña */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Apila los elementos de navegación verticalmente */
+    }
+
+    .nav-content {
+        flex-direction: column; /* Apila los elementos de navegación verticalmente */
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
+    }
+
+    .nav-links {
+        margin-top: 20px; /* Agrega un poco de espacio entre la barra de navegación y los enlaces */
+    }
+
+    .nav-links ul {
+        flex-direction: column; /* Apila los enlaces verticalmente */
+    }
+
+    .nav-links li {
+        margin-bottom: 10px; /* Agrega un poco de espacio entre los enlaces */
+    }
+
+    .logoindex a{
+        font-size: 20px;
+        text-align: left;
+        color: #1f2937;
+        font-weight: bold;
+    }
+    .logoindex img {
+        width: 40px; /* Ancho de la imagen */
+        height: 38px; /* Alto de la imagen */
+        float: left; /* Flota a la izquierda */
+    }
 }
 
 .nav-links a::before {
@@ -134,44 +172,6 @@ footer {
 }
 
 
-/* Estilos de la sección hero */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                url('/assets/images/Backgrounts_images/Pagina\ principal.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-    padding-top: 4rem;
-    animation: zoom 10s infinite;
-}
-
-@keyframes zoom {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-/* Contenedor principal de contenido hero */
-.hero-content {
-    max-width: 800px; /* Ancho máximo del contenido */
-    margin: 0 auto; /* Centrado horizontal */
-    padding: 2rem; /* Espaciado interno */
-}
-
-.hero h1 {
-    font-size: 3.5rem; /* Tamaño grande para el título */
-    margin-bottom: 1.5rem; /* Espacio debajo del título */
-}
-
 
 /* Estilo del logo en el footer */
 .logofooter a {
@@ -189,7 +189,29 @@ footer {
     padding: 0px; /* Sin relleno interno */
 }
 
-/* Lista de redes sociales en el footer */
+/* Estilos del pie de página */
+.footer {
+    background-color: var(--bg-light); /* Fondo del pie de página */
+    padding: 2rem; /* Espaciado interno */
+    text-align: center; /* Alineación del texto */
+}
+
+.footer-content {
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrado horizontal */
+    display: grid; /* Usa diseño de cuadrícula */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusta las columnas según el ancho disponible */
+    gap: 2rem; /* Espacio entre las columnas */
+}
+
+.footer-content > div {
+    background-color: #dddddd23; /* Fondo de las columnas */
+    padding: 1rem; /* Espaciado interno */
+    border: 1px solid #dddddd23; /* Borde de las columnas */
+    border-radius: 10px; /* Radio de las esquinas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra de las columnas */
+}
+
 .social ul li {
     list-style: none; /* Elimina los estilos de lista predeterminados */
     padding: 1px; /* Espaciado interno pequeño */
