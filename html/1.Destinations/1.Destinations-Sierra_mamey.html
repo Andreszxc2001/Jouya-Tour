@@ -4,93 +4,421 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="/css/Styles_destinations.css">
-
-    <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon//apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon//apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon//apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon//apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon//apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon//apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicon//apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicon//apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon//apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/assets/favicon//android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon//favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon//favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon//favicon-16x16.png">
     <title>Barcelona - Jouya Tour</title>
+    <style>
+        :root {
+            --primary: #10b981;
+            --secondary: #059669;
+            --text: #1f2937;
+            --text-light: #4b5563;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --accent: #6366f1;
+            --whatsapp: #25D366;
+            --transition: all 0.3s ease-in-out;
+            --border-radius: 12px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text);
+        }
+
+        .navbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+        }
+
+        .carousel-container {
+            margin-top: 60px;
+            height: 70vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: var(--transition);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .section {
+            max-width: 1280px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .tour-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .highlight-card {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .price-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .book-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .carousel-container {
+                height: 50vh;
+            }
+        }
+        .tour-overview {
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            color: white;
+            padding: 4rem 0;
+            margin-top: -2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .overview-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .overview-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .overview-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .overview-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-item i {
+            font-size: 1.2rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem;
+            border-radius: 50%;
+        }
+
+        .tour-duration {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin-top: 2rem;
+        }
+
+        .tour-duration i {
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .overview-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .overview-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar" id="navbar">
         <div class="nav-content">
             <a href="#" class="nav-logo">Jouya Tour</a>
             <div class="nav-links">
-                <a href="index.html">Inicio</a>
-                <a href="#destinos">Destinos</a>
-                <a href="#guias">Guías</a>
-                <a href="#contacto">Contacto</a>
+                <a href="#inicio">Inicio</a>
+                <a href="#incluye">Incluye</a>
+                <a href="#lugares">Lugares</a>
+                <a href="#precios">Precios</a>
             </div>
         </div>
     </nav>
 
     <div class="carousel-container">
-        <div class="carousel" id="destinationCarousel">
-            <!-- Las diapositivas se generarán dinámicamente -->
-        </div>
-        <div class="carousel-controls">
-            <button class="carousel-control prev" onclick="prevSlide()">
-                <i class="fas fa-chevron-left" aria-hidden="true"></i>
-                <span class="sr-only">Anterior</span>
-            </button>
-            <button class="carousel-control next" onclick="nextSlide()">
-                <i class="fas fa-chevron-right" aria-hidden="true"></i>
-                <span class="sr-only">Siguiente</span>
-            </button>
+        <div class="carousel-slides">
+            <!-- Las imágenes se agregarán dinámicamente -->
         </div>
     </div>
-
-    <main class="destination-content">
-        <div class="destination-header">
-            <h1>Descubre Barcelona</h1>
-            <p>La ciudad donde el arte, la arquitectura y la cultura cobran vida</p>
-        </div>
-
-        <div class="destination-grid">
-            <div class="destination-description">
-                <h2>Sobre Barcelona</h2>
-                <p>Barcelona, capital de Cataluña, es una ciudad mediterránea que combina la modernidad con una rica historia. Famosa por su arquitectura única, gastronomía y vibrante vida urbana, ofrece una experiencia inigualable para los visitantes.</p>
-
-                <div class="attraction-card">
-                    <img src="sagrada-familia.jpg" alt="Sagrada Familia" class="attraction-image">
-                    <div class="attraction-content">
-                        <h4>Sagrada Familia</h4>
-                        <p>La obra maestra inacabada de Gaudí, conocida por su intrincada arquitectura y simbolismo.</p>
-                    </div>
-                </div>
-
-                <div class="attraction-card">
-                    <img src="las-ramblas.jpg" alt="Las Ramblas" class="attraction-image">
-                    <div class="attraction-content">
-                        <h4>Las Ramblas</h4>
-                        <p>El icónico paseo peatonal de Barcelona, conocido por su animado ambiente, tiendas, artistas callejeros y restaurantes.</p>
+    <section class="tour-overview">
+        <div class="overview-content">
+            <div class="overview-text">
+                <h1>Descubre la Magia de Barcelona</h1>
+                <p>Sumérgete en un viaje inolvidable por una de las ciudades más vibrantes de Europa. Nuestro tour te llevará a través de siglos de historia, arte modernista y cultura catalana, todo mientras disfrutas de la mejor gastronomía mediterránea.</p>
+                <div class="tour-duration">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h3>Duración del Tour</h3>
+                        <p>5 días / 4 noches de experiencia completa</p>
                     </div>
                 </div>
             </div>
-
-            <aside class="destination-sidebar">
-                <h2>Precio del Tour</h2>
-                <div class="price-info">
-                    <p>Desde <span class="highlight">€199</span> por persona</p>
+            <div class="overview-features">
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Grupos reducidos</span>
                 </div>
-                <a href="https://wa.me/000000000000?text=¡Quiero reservar mi tour a Barcelona!" class="whatsapp-button">
-                    <i class="fab fa-whatsapp"></i> Reserva por WhatsApp
-                </a>
-            </aside>
+                <div class="feature-item">
+                    <i class="fas fa-language"></i>
+                    <span>Guía en español</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-ticket-alt"></i>
+                    <span>Entradas incluidas</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span>Rutas optimizadas</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-wine-glass-alt"></i>
+                    <span>Experiencia gastronómica</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-camera"></i>
+                    <span>Spots fotográficos</span>
+                </div>
+            </div>
         </div>
-    </main>
+    </section>
 
-    <script src="/javascript/Dinamic_destinations.js"></script>
+    <section id="experiencia" class="section">
+        <h2>La Experiencia Barcelona</h2>
+        <div class="tour-highlights">
+            <div class="highlight-card">
+                <h3>Arte y Arquitectura</h3>
+                <p>Explora las obras maestras de Gaudí y descubre cómo Barcelona se convirtió en la capital del modernismo. Desde la Sagrada Familia hasta el Park Güell, cada rincón cuenta una historia única.</p>
+            </div>
+            <div class="highlight-card">
+                <h3>Cultura y Tradiciones</h3>
+                <p>Sumérgete en la rica cultura catalana a través de sus festivales, música y tradiciones. Experimenta el ambiente local en los mercados históricos y plazas emblemáticas.</p>
+            </div>
+            <div class="highlight-card">
+                <h3>Gastronomía Local</h3>
+                <p>Degusta la auténtica cocina catalana y mediterránea. Desde tapas tradicionales hasta platos modernos, cada comida es una aventura culinaria.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="incluye" class="section">
+        <h2>¿Qué incluye el tour?</h2>
+        <div class="tour-highlights">
+            <div class="highlight-card">
+                <i class="fas fa-hotel"></i>
+                <h3>Alojamiento</h3>
+                <p>4 noches en hotel 4 estrellas</p>
+            </div>
+            <div class="highlight-card">
+                <i class="fas fa-utensils"></i>
+                <h3>Comidas</h3>
+                <p>Desayuno buffet diario</p>
+            </div>
+            <div class="highlight-card">
+                <i class="fas fa-bus"></i>
+                <h3>Transporte</h3>
+                <p>Traslados y tours en autobús</p>
+            </div>
+            <div class="highlight-card">
+                <i class="fas fa-user-tie"></i>
+                <h3>Guía</h3>
+                <p>Guía profesional en español</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="lugares" class="section">
+        <h2>Lugares que visitaremos</h2>
+        <div class="tour-highlights">
+            <div class="highlight-card">
+                <h3>Sagrada Familia</h3>
+                <p>Visita guiada de 2 horas</p>
+                <p>Entrada sin filas incluida</p>
+            </div>
+            <div class="highlight-card">
+                <h3>Barrio Gótico</h3>
+                <p>Tour histórico</p>
+                <p>Catedral de Barcelona</p>
+            </div>
+            <div class="highlight-card">
+                <h3>Park Güell</h3>
+                <p>Acceso completo al parque</p>
+                <p>Tiempo libre para fotos</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="precios" class="section">
+        <h2>Precios del Tour</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Adultos</h3>
+                <div class="price">€299</div>
+                <ul>
+                    <li>Todas las actividades</li>
+                    <li>Guía especializado</li>
+                    <li>Comidas incluidas</li>
+                </ul>
+                <a href="#" class="book-button">Reservar Ahora</a>
+            </div>
+            <div class="price-card">
+                <h3>Niños (hasta 12 años)</h3>
+                <div class="price">€199</div>
+                <ul>
+                    <li>Todas las actividades</li>
+                    <li>Menú infantil</li>
+                    <li>Actividades especiales</li>
+                </ul>
+                <a href="#" class="book-button">Reservar Ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Datos del carrusel
+        const carouselImages = [
+            { url: '/images/barcelona1.jpg', caption: 'Sagrada Familia' },
+            { url: '/images/barcelona2.jpg', caption: 'Park Güell' },
+            { url: '/images/barcelona3.jpg', caption: 'Barrio Gótico' }
+        ];
+
+        let currentSlide = 0;
+        const carouselContainer = document.querySelector('.carousel-slides');
+
+        // Crear slides
+        carouselImages.forEach((image, index) => {
+            const slide = document.createElement('div');
+            slide.className = `carousel-slide ${index === 0 ? 'active' : ''}`;
+            slide.style.backgroundImage = `url(${image.url})`;
+            carouselContainer.appendChild(slide);
+        });
+
+        const slides = document.querySelectorAll('.carousel-slide');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Cambio automático de slides
+        setInterval(nextSlide, 5000);
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
 </body>
 </html>

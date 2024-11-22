@@ -5,25 +5,26 @@
     align-items: center;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url('/assets/images/Backgrounts_images/Pagina principal.jpg');
-    background-size: cover;
-    background-position: center;
+    background-size: 300% 300%;
     color: white;
     text-align: center;
     padding-top: 4rem;
-    animation: zoom 10s infinite;
+    animation: gradientShift 15s infinite;
 }
 
-@keyframes zoom {
+@keyframes gradientShift {
     0% {
-        transform: scale(1);
-    }
-    25% {
-        transform: scale(1.1);
+        background-position: 0% 50%;
     }
     50% {
-        transform: scale(1);
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 }
+
+
 
 /* Contenedor principal de contenido hero */
 .hero-content {
@@ -34,7 +35,8 @@
 
 .hero h1 {
     font-size: 3.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+    
 }
 
 /* Estilos de la caja de búsqueda */
@@ -106,12 +108,19 @@
 
 /* Tarjetas de características */
 .feature-card {
-    background: white;
+    background: #1f2937;
     padding: 2rem;
     border-radius: 1rem;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
+}
+
+.feature-card h3 {
+    color: #00bf63;
+}
+.feature-card p {
+    color: #ffffff;
 }
 
 .feature-card:hover {
@@ -261,7 +270,7 @@
 @media (max-width: 1024px) {
     .hero {
         height: auto;
-        padding-top: 2rem;
+        padding-top: 6rem;
     }
     .hero h1 {
         font-size: 1.5rem;
@@ -281,4 +290,19 @@
     .search-box select {
         font-size: 0.9rem;
     }
+}
+
+.guides-section .ver {
+    text-align: center;
+    margin-top: 2rem;
+    text-decoration: none;
+}   
+
+.guides-section .ver button {
+    background: var(--primary);
+    color: rgb(253, 253, 253);
+    padding: 0.5rem 1rem;
+    border-radius: 4rem;
+    display: inline-block;
+    margin-top: 1rem;
 }
