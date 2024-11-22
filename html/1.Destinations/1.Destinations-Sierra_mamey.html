@@ -8,16 +8,12 @@
     <style>
         :root {
             --primary: #10b981;
-            --secondary: #059669;
-            --text: #1f2937;
-            --text-light: #4b5563;
-            --bg-light: #f9fafb;
-            --bg-white: #ffffff;
             --accent: #6366f1;
-            --whatsapp: #25D366;
-            --transition: all 0.3s ease-in-out;
-            --border-radius: 12px;
+            --text: #1f2937;
+            --bg: #f9fafb;
+            --white: #ffffff;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
         }
 
         * {
@@ -28,21 +24,23 @@
         }
 
         body {
-            background-color: var(--bg-light);
+            background: var(--bg);
             color: var(--text);
+            line-height: 1.6;
         }
 
         .navbar {
             position: fixed;
             width: 100%;
             top: 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: var(--shadow);
         }
 
         .nav-content {
-            max-width: 1280px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 1rem 2rem;
             display: flex;
@@ -62,65 +60,142 @@
             text-decoration: none;
             margin-left: 2rem;
             font-weight: 500;
+            transition: color 0.3s;
         }
 
-        .carousel-container {
-            margin-top: 60px;
-            height: 70vh;
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Carousel styles with improvements */
+        .carousel {
+            height: 100vh;
             position: relative;
             overflow: hidden;
         }
 
-        .carousel-slide {
+        .carousel-inner {
             position: absolute;
             width: 100%;
             height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             opacity: 0;
-            transition: var(--transition);
+            transition: opacity 0.8s ease-in-out;
             background-size: cover;
             background-position: center;
+            visibility: hidden;
+        }
+        .carousel-overlay {
+            background: linear-gradient(rgba(0, 0, 0, 0.589), rgba(0, 0, 0, 0.664));
+            z-index: 1; /* Ensure it's above the image but below the content */
+
         }
 
+        
         .carousel-slide.active {
             opacity: 1;
+            visibility: visible;
         }
 
-        .section {
-            max-width: 1280px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background: var(--bg-white);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-        }
-
-        .tour-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-
-        .highlight-card {
-            background: var(--bg-white);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-
-        .price-card {
-            background: var(--bg-white);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
+        .carousel-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             text-align: center;
+            color: var(--white);
+            z-index: 2;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .carousel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+        }
+
+        .carousel h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .carousel p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 2;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .carousel-dot.active {
+            background: var(--white);
+        }
+
+
+        /* Rest of the styles remain the same */
+        .section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--accent);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
         }
 
         .price {
@@ -130,294 +205,362 @@
             margin: 1rem 0;
         }
 
-        .book-button {
+        .btn {
             display: inline-block;
             background: var(--primary);
-            color: white;
+            color: var(--white);
             padding: 1rem 2rem;
-            border-radius: var(--border-radius);
+            border-radius: var(--radius);
             text-decoration: none;
-            margin-top: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
         }
 
         @media (max-width: 768px) {
-            .pricing-grid {
+            .carousel h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .carousel {
+                height: 70vh;
+            }
+        }
+
+/* Nuevos estilos para secciones de experiencia y lugares */
+        .two-column-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .column-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .two-column-section {
                 grid-template-columns: 1fr;
             }
-            
-            .carousel-container {
-                height: 50vh;
-            }
-        }
-        .tour-overview {
-            background: linear-gradient(135deg, var(--accent), var(--primary));
-            color: white;
-            padding: 4rem 0;
-            margin-top: -2rem;
-            position: relative;
-            z-index: 1;
         }
 
-        .overview-content {
-            max-width: 1280px;
+        /* Nuevos estilos para la sección de precios */
+        .pricing-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
         }
 
-        .overview-text h1 {
-            font-size: 2.5rem;
+        .pricing-details {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+        }
+
+        .pricing-details h3 {
+            color: var(--accent);
             margin-bottom: 1.5rem;
-            line-height: 1.2;
+            font-size: 1.5rem;
         }
 
-        .overview-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            opacity: 0.9;
+        .included-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
         }
 
-        .overview-features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .feature-item {
+        .included-list li {
+            padding: 0.5rem 0;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        .feature-item i {
-            font-size: 1.2rem;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 0.5rem;
-            border-radius: 50%;
+        .included-list i {
+            color: var(--primary);
         }
 
-        .tour-duration {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: rgba(255, 255, 255, 0.1);
+        .highlight-box {
+            background: var(--primary);
+            color: var(--white);
             padding: 1rem;
-            border-radius: var(--border-radius);
-            margin-top: 2rem;
+            border-radius: var(--radius);
+            margin: 1rem 0;
+            text-align: center;
         }
 
-        .tour-duration i {
+        .price-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .package-title {
             font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .duration {
+            color: var(--text);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
         }
 
         @media (max-width: 768px) {
-            .overview-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .overview-features {
+            .pricing-container {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar" id="navbar">
+    <nav class="navbar">
         <div class="nav-content">
             <a href="#" class="nav-logo">Jouya Tour</a>
             <div class="nav-links">
                 <a href="#inicio">Inicio</a>
-                <a href="#incluye">Incluye</a>
+                <a href="#experiencia">Experiencia</a>
                 <a href="#lugares">Lugares</a>
                 <a href="#precios">Precios</a>
             </div>
         </div>
     </nav>
 
-    <div class="carousel-container">
-        <div class="carousel-slides">
+    <div class="carousel">
+        <div class="carousel-overlay"></div>
+        <div class="carousel-inner">
             <!-- Las imágenes se agregarán dinámicamente -->
         </div>
+        <div class="carousel-content">
+            <h1>Descubre Barcelona</h1>
+            <p>Embárcate en un viaje inolvidable por una de las ciudades más fascinantes de Europa</p>
+            <a href="#precios" class="btn">Reserva Ahora</a>
+        </div>
+        <div class="carousel-controls">
+            <!-- Los puntos se agregarán dinámicamente -->
+        </div>
     </div>
-    <section class="tour-overview">
-        <div class="overview-content">
-            <div class="overview-text">
-                <h1>Descubre la Magia de Barcelona</h1>
-                <p>Sumérgete en un viaje inolvidable por una de las ciudades más vibrantes de Europa. Nuestro tour te llevará a través de siglos de historia, arte modernista y cultura catalana, todo mientras disfrutas de la mejor gastronomía mediterránea.</p>
-                <div class="tour-duration">
-                    <i class="fas fa-clock"></i>
-                    <div>
-                        <h3>Duración del Tour</h3>
-                        <p>5 días / 4 noches de experiencia completa</p>
-                    </div>
-                </div>
-            </div>
-            <div class="overview-features">
-                <div class="feature-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Grupos reducidos</span>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-language"></i>
-                    <span>Guía en español</span>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-ticket-alt"></i>
-                    <span>Entradas incluidas</span>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <span>Rutas optimizadas</span>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-wine-glass-alt"></i>
-                    <span>Experiencia gastronómica</span>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-camera"></i>
-                    <span>Spots fotográficos</span>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="experiencia" class="section">
-        <h2>La Experiencia Barcelona</h2>
-        <div class="tour-highlights">
-            <div class="highlight-card">
+    <!-- Rest of the HTML content remains the same -->
+    <section id="experiencia" class="two-column-section">
+        <div class="column-content">
+            <h2>La Experiencia Barcelona</h2>
+            <div class="card">
+                <i class="fas fa-landmark"></i>
                 <h3>Arte y Arquitectura</h3>
-                <p>Explora las obras maestras de Gaudí y descubre cómo Barcelona se convirtió en la capital del modernismo. Desde la Sagrada Familia hasta el Park Güell, cada rincón cuenta una historia única.</p>
+                <p>Explora las obras maestras de Gaudí y el modernismo catalán, descubriendo la rica herencia arquitectónica de la ciudad.</p>
             </div>
-            <div class="highlight-card">
+            <div class="card">
+                <i class="fas fa-guitar"></i>
                 <h3>Cultura y Tradiciones</h3>
-                <p>Sumérgete en la rica cultura catalana a través de sus festivales, música y tradiciones. Experimenta el ambiente local en los mercados históricos y plazas emblemáticas.</p>
-            </div>
-            <div class="highlight-card">
-                <h3>Gastronomía Local</h3>
-                <p>Degusta la auténtica cocina catalana y mediterránea. Desde tapas tradicionales hasta platos modernos, cada comida es una aventura culinaria.</p>
+                <p>Sumérgete en la vibrante cultura catalana, sus festivales, música tradicional y costumbres únicas.</p>
             </div>
         </div>
-    </section>
-
-    <section id="incluye" class="section">
-        <h2>¿Qué incluye el tour?</h2>
-        <div class="tour-highlights">
-            <div class="highlight-card">
-                <i class="fas fa-hotel"></i>
-                <h3>Alojamiento</h3>
-                <p>4 noches en hotel 4 estrellas</p>
-            </div>
-            <div class="highlight-card">
+        <div class="column-content">
+            <h2>Experiencias Únicas</h2>
+            <div class="card">
                 <i class="fas fa-utensils"></i>
-                <h3>Comidas</h3>
-                <p>Desayuno buffet diario</p>
+                <h3>Gastronomía</h3>
+                <p>Descubre los sabores auténticos de la cocina mediterránea, con degustaciones en mercados locales y restaurantes emblemáticos.</p>
             </div>
-            <div class="highlight-card">
-                <i class="fas fa-bus"></i>
-                <h3>Transporte</h3>
-                <p>Traslados y tours en autobús</p>
-            </div>
-            <div class="highlight-card">
-                <i class="fas fa-user-tie"></i>
-                <h3>Guía</h3>
-                <p>Guía profesional en español</p>
+            <div class="card">
+                <i class="fas fa-palette"></i>
+                <h3>Arte Callejero</h3>
+                <p>Recorre los barrios más creativos, explorando el arte urbano y la escena cultural contemporánea de Barcelona.</p>
             </div>
         </div>
     </section>
 
-    <section id="lugares" class="section">
-        <h2>Lugares que visitaremos</h2>
-        <div class="tour-highlights">
-            <div class="highlight-card">
+    <section id="lugares" class="two-column-section">
+        <div class="column-content">
+            <h2>Lugares Históricos</h2>
+            <div class="card">
+                <i class="fas fa-church"></i>
                 <h3>Sagrada Familia</h3>
-                <p>Visita guiada de 2 horas</p>
-                <p>Entrada sin filas incluida</p>
+                <p>Visita guiada de 2 horas con entrada preferente a la obra maestra de Antoni Gaudí, un símbolo icónico de Barcelona.</p>
             </div>
-            <div class="highlight-card">
+            <div class="card">
+                <i class="fas fa-archway"></i>
                 <h3>Barrio Gótico</h3>
-                <p>Tour histórico</p>
-                <p>Catedral de Barcelona</p>
+                <p>Recorrido histórico por el corazón medieval de Barcelona, explorando callejuelas antiguas y monumentos históricos.</p>
             </div>
-            <div class="highlight-card">
+        </div>
+        <div class="column-content">
+            <h2>Lugares Emblemáticos</h2>
+            <div class="card">
+                <i class="fas fa-tree"></i>
                 <h3>Park Güell</h3>
-                <p>Acceso completo al parque</p>
-                <p>Tiempo libre para fotos</p>
+                <p>Acceso completo al parque con tiempo para fotografías, un espacio único que combina arquitectura y naturaleza.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-beach"></i>
+                <h3>Playas de Barcelona</h3>
+                <p>Visita a las icónicas playas de la ciudad, con tiempo para relajarse y disfrutar del ambiente mediterráneo.</p>
             </div>
         </div>
     </section>
 
     <section id="precios" class="section">
-        <h2>Precios del Tour</h2>
-        <div class="pricing-grid">
-            <div class="price-card">
-                <h3>Adultos</h3>
-                <div class="price">€299</div>
-                <ul>
-                    <li>Todas las actividades</li>
-                    <li>Guía especializado</li>
-                    <li>Comidas incluidas</li>
+        <h2>Precios y Detalles del Tour</h2>
+        <div class="pricing-container">
+            <!-- Columna izquierda: Detalles del tour -->
+            <div class="pricing-details">
+                <h3>¿Qué incluye el tour?</h3>
+                <ul class="included-list">
+                    <li><i class="fas fa-hotel"></i> Hospedaje 4★ (6 noches/7 días)</li>
+                    <li><i class="fas fa-utensils"></i> Desayuno buffet diario</li>
+                    <li><i class="fas fa-bus"></i> Transporte privado climatizado</li>
+                    <li><i class="fas fa-ticket-alt"></i> Entradas a todas las atracciones</li>
+                    <li><i class="fas fa-user-tie"></i> Guía turístico certificado</li>
+                    <li><i class="fas fa-map-marked-alt"></i> City tours diarios</li>
+                    <li><i class="fas fa-wine-glass-alt"></i> 2 cenas típicas catalanas</li>
+                    <li><i class="fas fa-camera"></i> Tour fotográfico por la ciudad</li>
                 </ul>
-                <a href="#" class="book-button">Reservar Ahora</a>
+
+                <div class="highlight-box">
+                    <h4>Experiencias Destacadas</h4>
+                    <ul class="included-list">
+                        <li><i class="fas fa-check"></i> Tour Sagrada Familia</li>
+                        <li><i class="fas fa-check"></i> Recorrido Barrio Gótico</li>
+                        <li><i class="fas fa-check"></i> Visita Park Güell</li>
+                        <li><i class="fas fa-check"></i> Tour gastronómico La Boquería</li>
+                    </ul>
+                </div>
             </div>
-            <div class="price-card">
-                <h3>Niños (hasta 12 años)</h3>
-                <div class="price">€199</div>
-                <ul>
-                    <li>Todas las actividades</li>
-                    <li>Menú infantil</li>
-                    <li>Actividades especiales</li>
-                </ul>
-                <a href="#" class="book-button">Reservar Ahora</a>
+
+            <!-- Columna derecha: Precios -->
+            <div class="packages">
+                <div class="price-card">
+                    <h3 class="package-title">Paquete Premium</h3>
+                    <p class="duration">7 días / 6 noches</p>
+                    <div class="price">€299</div>
+                    <p>por persona (adulto)</p>
+                    <ul class="included-list">
+                        <li><i class="fas fa-check"></i> Todas las actividades incluidas</li>
+                        <li><i class="fas fa-check"></i> Guía especializado</li>
+                        <li><i class="fas fa-check"></i> Grupos reducidos</li>
+                    </ul>
+                    <a href="#" class="btn">Reservar Ahora</a>
+                </div>
+
+                <div style="height: 2rem"></div>
+
+                <div class="price-card">
+                    <h3 class="package-title">Tarifa Niños</h3>
+                    <p class="duration">Menores de 12 años</p>
+                    <div class="price">€199</div>
+                    <p>por niño</p>
+                    <ul class="included-list">
+                        <li><i class="fas fa-check"></i> Actividades adaptadas</li>
+                        <li><i class="fas fa-check"></i> Menú infantil</li>
+                        <li><i class="fas fa-check"></i> Material didáctico</li>
+                    </ul>
+                    <a href="#" class="btn">Reservar Ahora</a>
+                </div>
             </div>
         </div>
     </section>
-
+<a href="/assets/images/Carrusel-destinations/1.Sierra-mamey/Image-4.jpg"></a>
     <script>
-        // Datos del carrusel
-        const carouselImages = [
-            { url: '/images/barcelona1.jpg', caption: 'Sagrada Familia' },
-            { url: '/images/barcelona2.jpg', caption: 'Park Güell' },
-            { url: '/images/barcelona3.jpg', caption: 'Barrio Gótico' }
-        ];
+        // Configuración mejorada del carrusel
+        document.addEventListener('DOMContentLoaded', function() {
+            const carouselImages = [
+                { url: '/assets/images/Carrusel-destinations/1.Sierra-mamey/Image-1.jpg', caption: 'Sagrada Familia' },
+                { url: '/assets/images/Carrusel-destinations/1.Sierra-mamey/Image-2.webp', caption: 'Park Güell' },
+                { url: '/assets/images/Carrusel-destinations/1.Sierra-mamey/Image-3.jpg', caption: 'Barrio Gótico' },
+                { url: '/assets/images/Carrusel-destinations/1.Sierra-mamey/Image-4.jpg', caption: 'Barrio Gótico' }
+            ];
 
-        let currentSlide = 0;
-        const carouselContainer = document.querySelector('.carousel-slides');
+            const carouselInner = document.querySelector('.carousel-inner');
+            const carouselControls = document.querySelector('.carousel-controls');
+            let currentSlide = 0;
+            let isAnimating = false;
 
-        // Crear slides
-        carouselImages.forEach((image, index) => {
-            const slide = document.createElement('div');
-            slide.className = `carousel-slide ${index === 0 ? 'active' : ''}`;
-            slide.style.backgroundImage = `url(${image.url})`;
-            carouselContainer.appendChild(slide);
+            // Crear slides y dots
+            carouselImages.forEach((image, index) => {
+                // Crear slide
+                const slide = document.createElement('div');
+                slide.className = `carousel-slide ${index === 0 ? 'active' : ''}`;
+                slide.style.backgroundImage = `url(${image.url})`;
+                carouselInner.appendChild(slide);
+
+                // Crear dot
+                const dot = document.createElement('div');
+                dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+                dot.addEventListener('click', () => {
+                    if (!isAnimating) {
+                        goToSlide(index);
+                    }
+                });
+                carouselControls.appendChild(dot);
+            });
+
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+
+            function goToSlide(index) {
+                if (currentSlide === index) return;
+                
+                isAnimating = true;
+                
+                slides[currentSlide].classList.remove('active');
+                dots[currentSlide].classList.remove('active');
+                
+                currentSlide = index;
+                
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+                
+                setTimeout(() => {
+                    isAnimating = false;
+                }, 800); // Match transition duration
+            }
+
+            function nextSlide() {
+                if (!isAnimating) {
+                    goToSlide((currentSlide + 1) % slides.length);
+                }
+            }
+
+            // Cambio automático de slides
+            let intervalId = setInterval(nextSlide, 5000);
+
+            // Detener la rotación automática cuando el usuario interactúa
+            carouselControls.addEventListener('mouseenter', () => {
+                clearInterval(intervalId);
+            });
+
+            // Reanudar la rotación automática cuando el usuario deja de interactuar
+            carouselControls.addEventListener('mouseleave', () => {
+                intervalId = setInterval(nextSlide, 5000);
+            });
         });
-
-        const slides = document.querySelectorAll('.carousel-slide');
-
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[index].classList.add('active');
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        // Cambio automático de slides
-        setInterval(nextSlide, 5000);
 
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-            } else {
-                navbar.style.boxShadow = 'none';
-            }
+            const navbar = document.querySelector('.navbar');
+            navbar.style.boxShadow = window.scrollY > 50 ? 'var(--shadow)' : 'none';
         });
     </script>
 </body>
