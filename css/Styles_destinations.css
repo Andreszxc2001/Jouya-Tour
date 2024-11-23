@@ -135,6 +135,7 @@
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     transition: transform 0.3s;
+    margin: 15px;
 }
 
 /* Estilos de las tarjetas al pasar el mouse */
@@ -163,7 +164,10 @@
     padding: 1rem 2rem;
     border-radius: var(--radius);
     text-decoration: none;
-    transition: transform 0.3s;
+    transition: transform 0.3s;}
+
+    .btn a {
+        color: var(--white);
 }
 /* Estilos del botón al pasar el mouse */
 .btn:hover {
@@ -194,11 +198,24 @@
     margin: 1rem auto;
     padding: 0rem;
 }
+
+.column-content .card{
+    background-color: #1f2937;
+}
 /* Nuevos estilos para el contenido de la sección */
 .column-content h2 {
     display: grid;
     text-align: center;
 }
+.column-content h3 {
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.column-content p {
+    color: var(--white);
+    margin-bottom: 0.5rem;}
 
 /* Nuevos estilos para la sección de dos columnas */
 @media (max-width: 768px) {
@@ -209,18 +226,21 @@
 
 /* Nuevos estilos para la sección de detalles de precios */
 .pricing-details {
-    background: var(--white);
+    background:#1f2937;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     padding: 2rem;
 }
 /* Nuevos estilos para el encabezado de la sección de detalles de precios */
 .pricing-details h3 {
-    color: var(--accent);
+    color: var(--white);
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
 }
-
+.pricing-details li {
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
 /* Nuevos estilos para la lista de incluciones */
 .included-list {
     list-style: none;
@@ -251,22 +271,39 @@
 }
 /* Nuevos estilos para las tarjetas de precios */
 .price-card {
-    background: var(--white);
+    background:#1f2937;
     border-radius: var(--radius);
     padding: 2rem;
     text-align: center;
     box-shadow: var(--shadow);
     transition: transform 0.3s;
+    margin: 15px;
 }
 /* Nuevos estilos para las tarjetas de precios al pasar el mouse */
 .price-card:hover {
     transform: translateY(-5px);
 }
+
+
+
+.packages a {
+    text-decoration: none;
+    color: var(--text);
+}
 /* Nuevos estilos para el títulos de las tarjetas de precios */
 .package-title {
     font-size: 1.5rem;
-    color: var(--accent);
+    color: var(--white);
     margin-bottom: 1rem;
+}
+
+.packages p {
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+.packages li {
+    color: var(--white);
+    margin-bottom: 0.5rem;
 }
 /* Nuevos estilos para la duración */
 .duration {
@@ -279,4 +316,17 @@
     .pricing-container {
         grid-template-columns: 1fr;
     }
+}
+
+.whatsapp a{
+    float: right;
+    text-align: center;
+    text-decoration: none;
+    bottom: 4rem;
+    right: 4rem;
+    color: var(--white);
+    background: #10b981;
+    border-radius: var(--radius);
+    padding: 1rem;
+    transition: transform 0.3s;
 }

@@ -95,6 +95,7 @@ footer {
     display: grid; /* Usa diseño de cuadrícula */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusta las columnas según el ancho disponible */
     gap: 2rem; /* Espacio entre las columnas */
+    text-align: left;
 }
 
 .footer-content > div {
@@ -103,6 +104,7 @@ footer {
     border: 1px solid #dddddd23; /* Borde de las columnas */
     border-radius: 10px; /* Radio de las esquinas */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra de las columnas */
+
 }
 
 .social ul li {
@@ -113,6 +115,10 @@ footer {
 .social a {
     text-decoration: none; /* Sin subrayado */
     color: #fafafa; /* Color blanco claro */
+}
+
+.destinos p {
+    color: #ffffff; /* Color blanco */
 }
 
 /* Lista de contacto en el footer */
