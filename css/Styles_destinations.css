@@ -1,232 +1,282 @@
+/* Estilos del carrusel */
+.carousel {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
 
-        /* Enhanced Modern Design */
-        :root {
-            --primary: #10b981;
-            --secondary: #059669;
-            --text: #1f2937;
-            --text-light: #4b5563;
-            --bg-light: #f9fafb;
-            --bg-white: #ffffff;
-            --accent: #6366f1;
-            --whatsapp: #25D366;
-            --transition: all 0.3s ease-in-out;
-            --border-radius: 12px;
-            --shadow-subtle: 0 4px 6px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.12);
-        }
+/* Estilos de las diapositivas */
+.carousel-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+/* Estilos de las diapositivas */
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    visibility: hidden;
+}
 
-        body {
-            background-color: var(--bg-light);
-            color: var(--text);
-            line-height: 1.7;
-            scroll-behavior: smooth;
-        }
+/* Estilos del overlay */
+.carousel-overlay {
+    background: linear-gradient(rgba(0, 0, 0, 0.589), rgba(0, 0, 0, 0.664));
+    z-index: 1; /* Ensure it's above the image but below the content */
 
-        /* Enhanced Navbar */
-        .navbar {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            z-index: 1000;
-            box-shadow: var(--shadow-subtle);
-            backdrop-filter: blur(10px);
-            transition: var(--transition);
-        }
+}
 
-        .nav-content {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
+/* Estilos de la diapositiva activa */
+.carousel-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
 
-        .nav-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--accent);
-            text-decoration: none;
-            letter-spacing: -1px;
-        }
+/* Estilos del contenido del carrusel */
 
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-        }
+.carousel-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--white);
+    z-index: 2;
+    width: 90%;
+    max-width: 800px;
+}
 
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            transition: var(--transition);
-        }
+/* Estilos del overlay */
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--primary);
-            transition: var(--transition);
-        }
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+}
 
-        .nav-links a:hover {
-            color: var(--primary);
-        }
+/* Estilos de los títulos y párrafos */
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+.carousel h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
 
-        /* Enhanced Carousel */
-        .carousel-container {
-            margin-top: 80px;
-            height: 75vh;
-            position: relative;
-            overflow: hidden;
-        }
+.carousel p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
 
-        .carousel-slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: var(--transition);
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: flex-end;
-        }
+/* Estilos de los botones */
 
-        .carousel-slide.active {
-            opacity: 1;
-        }
+.carousel-controls {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 2;
+}
 
-        .carousel-caption {
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-            color: white;
-            padding: 2rem;
-            width: 100%;
-            text-align: center;
-        }
+/* Estilos de los puntos */
 
-        .carousel-controls {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 2rem;
-            transform: translateY(-50%);
-        }
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: background 0.3s;
+}
 
-        .carousel-control {
-            background: rgba(255, 255, 255, 0.8);
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
+/* Estilos de los puntos activos */
+.carousel-dot.active {
+    background: var(--white);
+}
 
-        .carousel-control:hover {
-            transform: scale(1.1);
-            background: white;
-        }
 
-        /* Main Content */
-        .destination-content {
-            max-width: 1280px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-        }
+/* Estilos de la sección */
+.section {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
 
-        .destination-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
+/* Estilos del encabezado */
+.section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--accent);
+}
 
-        .destination-description, .destination-sidebar {
-            background: var(--bg-white);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-subtle);
-            padding: 2rem;
-            transition: var(--transition);
-        }
+/* Estilos de la grilla */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
 
-        .destination-description:hover, .destination-sidebar:hover {
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-5px);
-        }
+/* Estilos de las tarjetas */
+.card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
 
-        .attraction-card {
-            background: var(--bg-white);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow-subtle);
-            transition: var(--transition);
-        }
+/* Estilos de las tarjetas al pasar el mouse */
+.card:hover {
+    transform: translateY(-5px);
+}
 
-        .attraction-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            transition: var(--transition);
-        }
+/* Estilos de los iconos */
+.card i {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+/* Estilos del precio */
+.price {
+    font-size: 2.5rem;
+    color: var(--primary);
+    font-weight: bold;
+    margin: 1rem 0;
+}
+/* Estilos del botón */
+.btn {
+    display: inline-block;
+    background: var(--primary);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+/* Estilos del botón al pasar el mouse */
+.btn:hover {
+    transform: scale(1.05);
+}
 
-        .attraction-card:hover .attraction-image {
-            transform: scale(1.05);
-        }
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .carousel h1 {
+        font-size: 2.5rem;
+    }
 
-        .attraction-content {
-            padding: 1.5rem;
-        }
+    .nav-links {
+        display: none;
+    }
 
-        .whatsapp-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            background: var(--whatsapp);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-        }
+    .carousel {
+        height: 70vh;
+    }
+}
 
-        .whatsapp-button:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-        }
+/* Nuevos estilos para secciones de experiencia y lugares */
+.two-column-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 2000px;
+    margin: 1rem auto;
+    padding: 0rem;
+}
+/* Nuevos estilos para el contenido de la sección */
+.column-content h2 {
+    display: grid;
+    text-align: center;
+}
 
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .destination-grid {
-                grid-template-columns: 1fr;
-            }
+/* Nuevos estilos para la sección de dos columnas */
+@media (max-width: 768px) {
+    .two-column-section {
+        grid-template-columns: 1fr;
+    }
+}
 
-            .carousel-container {
-                height: 50vh;
-            }
-        }
+/* Nuevos estilos para la sección de detalles de precios */
+.pricing-details {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+}
+/* Nuevos estilos para el encabezado de la sección de detalles de precios */
+.pricing-details h3 {
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+/* Nuevos estilos para la lista de incluciones */
+.included-list {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+/* Nuevos estilos para los elementos de la lista de incluciones */
+.included-list li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+/* Nuevos estilos para los iconos de la lista de incluciones */
+.included-list i {
+    color: var(--primary);
+}
+/* Nuevos estilos para la caja resaltada */
+.highlight-box {
+    background: var(--primary);
+    color: var(--white);
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin: 1rem 0;
+    text-align: center;
+}
+.highlight-box i{
+    color: white;
+}
+/* Nuevos estilos para las tarjetas de precios */
+.price-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
+/* Nuevos estilos para las tarjetas de precios al pasar el mouse */
+.price-card:hover {
+    transform: translateY(-5px);
+}
+/* Nuevos estilos para el títulos de las tarjetas de precios */
+.package-title {
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+/* Nuevos estilos para la duración */
+.duration {
+    color: var(--text);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+/* Nuevos estilos para la sección de precios */
+@media (max-width: 768px) {
+    .pricing-container {
+        grid-template-columns: 1fr;
+    }
+}

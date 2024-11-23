@@ -1,0 +1,147 @@
+/* Estilo de barra de navegacion y enlaces */
+
+/* Variables CSS */
+:root {
+    --primary: #10b981;      
+    --text: #1f2937;
+    --bg: #f9fafb;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --radius: 12px;
+}
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Estilos del body */
+body {
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+/* Estilos de la barra de navegación */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+/* Estilos del contenido de la barra de navegación */
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* Estilos del logo */
+.nav-logo img {
+    width: 130px; /* Ancho de la imagen */
+    height: 30px; /* Alto de la imagen */
+    float: left; /* Flota a la izquierda */
+}
+
+/* Estilos de los enlaces */
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+/* Estilos de los enlaces al pasar el mouse */
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+
+/* Stilo del footer */
+
+/* Estilo del logo en el footer */
+.logofooter a {
+    text-decoration: none; /* Sin subrayado en el texto */
+    font-size: 30px; /* Tamaño de fuente del texto del logo */
+    text-align: left; /* Alineación del texto a la izquierda */
+    color: #ffffff; /* Color blanco */
+    font-weight: bold; /* Fuente en negrita */
+}
+
+.logofooter img {
+    width: 40px; /* Ancho de la imagen del logo */
+    height: 38px; /* Altura de la imagen del logo */
+    float: left; /* Alinea la imagen a la izquierda */
+    padding: 0px; /* Sin relleno interno */
+}
+
+/* Estilos del pie de página */
+footer {
+    background-color: #1f2937; /* Fondo del pie de página */
+    padding: 3rem; /* Espaciado interno */
+    text-align: center; /* Alineación del texto */
+}
+
+.footer-content {
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrado horizontal */
+    display: grid; /* Usa diseño de cuadrícula */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusta las columnas según el ancho disponible */
+    gap: 2rem; /* Espacio entre las columnas */
+}
+
+.footer-content > div {
+    background-color: #dddddd23; /* Fondo de las columnas */
+    padding: 1rem; /* Espaciado interno */
+    border: 1px solid #dddddd23; /* Borde de las columnas */
+    border-radius: 10px; /* Radio de las esquinas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra de las columnas */
+}
+
+.social ul li {
+    list-style: none; /* Elimina los estilos de lista predeterminados */
+    padding: 1px; /* Espaciado interno pequeño */
+}
+
+.social a {
+    text-decoration: none; /* Sin subrayado */
+    color: #fafafa; /* Color blanco claro */
+}
+
+/* Lista de contacto en el footer */
+.contacto ul li {
+    list-style: none; /* Elimina los estilos de lista predeterminados */
+    padding: 1px; /* Espaciado interno pequeño */
+}
+.footer-content h3{
+    color:#00bf63 ;
+}
+.contacto a {
+    text-decoration: none; /* Sin subrayado */
+    color: #ffffff; /* Color blanco */
+}
+
+/* Créditos en el footer */
+.credits {
+    text-align: center; /* Centra el texto horizontalmente */
+    height: 0px; /* Altura fija en 0 */
+}
+.credits strong {
+    color: #00bf63;
+}
+/* Estilo del texto de créditos */
+.By, .text {
+    padding: 0 2px; /* Espaciado interno pequeño */
+    margin: 4px 0; /* Márgenes superior e inferior pequeños */
+    color: #fff9f9; /* Color de texto gris claro */
+    text-align: center; /* Centrado del texto */
+    font-size: 0.9em; /* Tamaño de fuente pequeño */
+    line-height: 1.2; /* Altura de línea ajustada */
+}
