@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
+    <link rel="stylesheet" href="/css/Styles_global-destinations.css">
     <link rel="stylesheet" href="/css/Styles_destinations.css">
 
+    <!-- Cargar iconos para la app -->
     <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon//apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon//apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon//apple-icon-72x72.png">
@@ -20,77 +23,174 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon//favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon//favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon//favicon-16x16.png">
-    <title>Barcelona - Jouya Tour</title>
+    <title>Jouya Tour - Cabo de la Vela</title>
 </head>
 <body>
-    <nav class="navbar" id="navbar">
-        <div class="nav-content">
-            <a href="#" class="nav-logo">Jouya Tour</a>
-            <div class="nav-links">
-                <a href="index.html">Inicio</a>
-                <a href="#destinos">Destinos</a>
-                <a href="#guias">Guías</a>
-                <a href="#contacto">Contacto</a>
-            </div>
-        </div>
-    </nav>
-
-    <div class="carousel-container">
-        <div class="carousel" id="destinationCarousel">
-            <!-- Las diapositivas se generarán dinámicamente -->
-        </div>
-        <div class="carousel-controls">
-            <button class="carousel-control prev" onclick="prevSlide()">
-                <i class="fas fa-chevron-left" aria-hidden="true"></i>
-                <span class="sr-only">Anterior</span>
-            </button>
-            <button class="carousel-control next" onclick="nextSlide()">
-                <i class="fas fa-chevron-right" aria-hidden="true"></i>
-                <span class="sr-only">Siguiente</span>
-            </button>
-        </div>
-    </div>
-
-    <main class="destination-content">
-        <div class="destination-header">
-            <h1>Descubre Barcelona</h1>
-            <p>La ciudad donde el arte, la arquitectura y la cultura cobran vida</p>
-        </div>
-
-        <div class="destination-grid">
-            <div class="destination-description">
-                <h2>Sobre Barcelona</h2>
-                <p>Barcelona, capital de Cataluña, es una ciudad mediterránea que combina la modernidad con una rica historia. Famosa por su arquitectura única, gastronomía y vibrante vida urbana, ofrece una experiencia inigualable para los visitantes.</p>
-
-                <div class="attraction-card">
-                    <img src="sagrada-familia.jpg" alt="Sagrada Familia" class="attraction-image">
-                    <div class="attraction-content">
-                        <h4>Sagrada Familia</h4>
-                        <p>La obra maestra inacabada de Gaudí, conocida por su intrincada arquitectura y simbolismo.</p>
-                    </div>
-                </div>
-
-                <div class="attraction-card">
-                    <img src="las-ramblas.jpg" alt="Las Ramblas" class="attraction-image">
-                    <div class="attraction-content">
-                        <h4>Las Ramblas</h4>
-                        <p>El icónico paseo peatonal de Barcelona, conocido por su animado ambiente, tiendas, artistas callejeros y restaurantes.</p>
-                    </div>
-                </div>
-            </div>
-
-            <aside class="destination-sidebar">
-                <h2>Precio del Tour</h2>
-                <div class="price-info">
-                    <p>Desde <span class="highlight">€199</span> por persona</p>
-                </div>
-                <a href="https://wa.me/000000000000?text=¡Quiero reservar mi tour a Barcelona!" class="whatsapp-button">
-                    <i class="fab fa-whatsapp"></i> Reserva por WhatsApp
+    <header>
+        <nav class="navbar">
+            <div class="nav-content">
+                <a href="/index.html" class="nav-logo">
+                    <img src="/assets/logos/Logo transparente2.png" alt="logo">
                 </a>
-            </aside>
-        </div>
-    </main>
+                <button class="menu-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="nav-links">
+                    <a href="#inicio"><i class="fa-solid fa-house"></i>Inicio</a>
+                    <a href="#experiencia"><i class="fa-solid fa-star"></i>Experiencia</a>
+                    <a href="#precios"><i class="fa-solid fa-dollar-sign"></i>Precios</a>
+                    <a href="/html/1.Destinations/2.Destinations-Cabo_de_la_vela.html">
+                        <i class="fa-solid fa-location-dot"></i>Otros destinos
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    <script src="/javascript/Dinamic_destinations.js"></script>
+<main>
+    <div class="carousel" data-carousel='[
+    {"url": "/assets/images/Carrusel-destinations/2.Cabo-de-la-vela/Image-1.webp", "caption": "Image-1"},
+    {"url": "/assets/images/Carrusel-destinations/2.Cabo-de-la-vela/Image-2.jpg", "caption": "Image-2"},
+    {"url": "/assets/images/Carrusel-destinations/2.Cabo-de-la-vela/Image-3.jpg", "caption": "Image-3"},
+    {"url": "/assets/images/Carrusel-destinations/2.Cabo-de-la-vela/Image-4.webp", "caption": "Image-4"}
+]'>
+    <div class="carousel-overlay"></div>
+    <div class="carousel-inner">
+        <!-- Las imágenes se agregarán dinámicamente -->
+    </div>
+    <div class="carousel-content" id="inicio">
+        <h1>Tour Cabo de la Vela</h1>
+        <p>Donde el desierto abraza el mar. ¡Un destino inolvidable!</p>
+        <a href="/html/1.Destinations/1.Destinations-Sierra_mamey.html" class="btn">Anterior destino</a>
+        <a href="/html/1.Destinations/3.Destinations-Santuario_de_flamencos.html" class="btn-2">Siguiente  destino</a>
+    </div>
+    <div class="carousel-controls">
+        <!-- Los puntos se agregarán dinámicamente -->
+    </div>
+</div>
+
+    <!-- Rest of the HTML content remains the same -->
+    <section id="experiencia" class="two-column-section">
+        <div class="column-content">
+            <h2>La experiencia en el Cabo de la Vela</h2>
+            <div class="card">
+                <i class="fas fa-mountain"></i>
+                <h3>Exploración al Pilón de Azúcar</h3>
+                <p>Embárcate en una caminata hacia el Pilón de Azúcar, un cerro sagrado para los Wayuu. Desde su cima, contempla una vista panorámica única que combina el mar Caribe con el árido desierto guajiro. Culmina la experiencia relajándote en la Playa del Pilón, con sus aguas tranquilas y cristalinas ideales para un baño refrescante.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-mountain-sun"></i>
+                <h3>Atardecer en el Faro de Cabo de la Vela</h3>
+                <p>Vive un momento mágico al visitar el faro de Cabo de la Vela, el punto perfecto para disfrutar de un atardecer inolvidable. El cielo se llena de tonos naranjas y púrpuras, mientras conoces historias y tradiciones Wayuu de la mano de guías locales. Una experiencia que conecta naturaleza y cultura en un escenario espectacular.</p>
+            </div>
+        </div>
+        
+        
+
+    <section id="precios" class="section">
+        <h2>Precios y Detalles del Tour</h2>
+        <div class="two-column-section">
+            <!-- Columna izquierda: Detalles del tour -->
+            <div class="pricing-details">
+                <h3>¿Qué incluye el tour?</h3>
+                <ul class="included-list">
+                    <li><i class="fas fa-bed"></i></i>Hospedaje</li>
+                    <li><i class="fas fa-bus"></i> Tours 4x4</li>
+                    <li><i class="fa-solid fa-utensils"></i> Alimentancion</li>
+                    <li><i class="fas fa-user-tie"></i> Guía turístico local</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h4>Experiencias Destacadas</h4>
+                    <ul class="included-list">
+                        <li><i class="fas fa-check"></i> Visita a Pilón de Azúcar</li>
+                        <li><i class="fas fa-check"></i> Visita al faro</li>
+                        <li><i class="fas fa-check"></i>Mini dunas</li>
+                        <li><i class="fas fa-check"></i> Visita a la playa arcoiris</li>
+                        <li><i class="fas fa-check"></i> Visita a la sala de manaure</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Columna derecha: Precios -->
+            <div class="packages">
+                <a href="" target="_blank"><div class="price-card">
+                    <h3 class="package-title">Paquete adulto</h3>
+                    <p class="duration">1 días / Pasadia </p>
+                    <div class="price">550.000 COP</div>
+                    <p>por persona (adulto)</p>
+                    <ul class="included-list">
+                        <li><i class="fas fa-check"></i> Todas las actividades incluidas</li>
+                        <li><i class="fas fa-check"></i> Guía especializado</li>
+                        <li><i class="fas fa-check"></i> Grupos reducidos</li>
+                    </ul>
+                    <a href="#" class="btn"><i class="fa-brands fa-whatsapp"></i>Reservar Ahora</a>
+                </a>
+                </div>
+
+                <div class="price-card">
+
+                    <a href="" target="_blank"><h3 class="package-title">Tarifa Niños</h3>
+                    <p class="duration">Menores de 12 años</p>
+                    <div class="price">$450.000 COP</div>
+                    <p>por niño</p>
+                    <ul class="included-list">
+                        <li><i class="fas fa-check"></i> Actividades adaptadas</li>
+                        <li><i class="fas fa-check"></i> Menú infantil</li>
+                    </ul>
+                    <a href="#" class="btn"><i class="fa-brands fa-whatsapp"></i>Reservar Ahora</a>
+                </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+    <footer>trea,./
+        <div class="footer-content">
+            <div>
+                <div class="logofooter">
+                    <a href="/index.html"><img src="/assets/logos/logo color.jpg" alt="logo">Jouya tour</a>
+                </div>
+    
+                <div class="social">
+                    <h3>Siguenos en</h3>
+                    <ul>
+                        <li><a href="" target="_blank"><i class="fa-brands fa-facebook-f"></i>Facebook</a></li>
+                        <li><a href="" target="_blank"><i class="fa-brands fa-instagram"></i>Instagram</a></li>
+                        <li><a href="" target="_blank"><i class="fa-brands fa-tiktok"></i>Tik tok</a></li>
+                        <li><a href="" target="_blank"><i class="fa-brands fa-twitter"></i>Twiter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="destinos">
+                <h3>Destinos Populares</h3>
+                <p>Sierra Mamey</p>
+                <p>City Tour Riohacha</p>
+                <p>Cabo de la Vela</p>
+            </div>
+            <div class="contacto"  id="contacto">
+                <h3><i class="fa-solid fa-user"></i>Contacto</h3>
+            <ul>
+                <li><a href="https://wa.link/vznsop" target="_blank"><i class="fa-brands fa-whatsapp"></i> 323-578-6491</a></li>
+                <li><a href="" target="_blank"><i class="fa-solid fa-phone"></i> 323-578-6491</a></li>
+                <li><a href="" target="_blank"><i class="fa-solid fa-envelope"></i>Correo</a></li>
+            </ul>
+            </div>
+        </div>
+    
+        <div class="credits">
+            <!-- Créditos de desarrollo -->
+            <p class="By"><strong>Developed by</strong> | Arnaldo Pushaina</p>
+            
+            <!-- Derechos reservados -->
+            <p class="text">©2024 | Todos los derechos reservados</p>
+        </div>
+    </footer>
+    <script src="/javascript/Dinamics_Destinations/1.Dinamic_destinations.js"></script>
+
+    <script>
+        
+    </script>
 </body>
 </html>

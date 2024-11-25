@@ -164,7 +164,20 @@
     padding: 1rem 2rem;
     border-radius: var(--radius);
     text-decoration: none;
-    transition: transform 0.3s;}
+    transition: transform 0.3s;
+    margin-top: 1rem;}
+
+    .btn-2 {
+        display: inline-block;
+        background: var(--text);
+        color: var(--white);
+        padding: 1rem 2rem;
+        border-radius: var(--radius);
+        text-decoration: none;
+        transition: transform 0.3s;
+        margin-top: 1rem;
+    }
+    
 
     .btn a {
         color: var(--white);
@@ -186,6 +199,10 @@
 
     .carousel {
         height: 70vh;
+    }
+
+    .whatsapp {
+        display: none;
     }
 }
 

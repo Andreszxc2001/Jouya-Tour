@@ -73,3 +73,47 @@ window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     navbar.style.boxShadow = window.scrollY > 50 ? 'var(--shadow)' : 'none';
 });
+
+
+// Script para menu responsive
+
+
+// Seleccionar elementos necesarios
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+const menuIcon = menuToggle.querySelector('i');
+
+// Función para abrir/cerrar menú
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+    // Cambiar icono
+    if (navLinks.classList.contains('show')) {
+        menuIcon.classList.remove('fa-bars');
+        menuIcon.classList.add('fa-times');
+    } else {
+        menuIcon.classList.remove('fa-times');
+        menuIcon.classList.add('fa-bars');
+    }
+});
+
+// Cerrar menú al hacer click en un enlace
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+            navLinks.classList.remove('show');
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        }
+    });
+});
+
+// Cerrar menú al hacer click fuera
+document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768) {
+        if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+            navLinks.classList.remove('show');
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        }
+    }
+});
