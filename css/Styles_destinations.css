@@ -106,7 +106,34 @@
     background: var(--white);
 }
 
+/* --- Responsive para Carrusel --- */
+@media (max-width: 1024px) {
+    .carousel {
+        height: 80vh;
+    }
 
+    .carousel h1 {
+        font-size: 2.5rem;
+    }
+
+    .carousel p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel {
+        height: 70vh;
+    }
+
+    .carousel h1 {
+        font-size: 2rem;
+    }
+
+    .carousel p {
+        font-size: 0.9rem;
+    }
+}
 /* Estilos de la sección */
 .section {
     max-width: 1200px;
@@ -142,7 +169,26 @@
 .card:hover {
     transform: translateY(-5px);
 }
+/* --- Responsive para Grillas y Tarjetas --- */
+@media (max-width: 1024px) {
+    .grid {
+        gap: 1.5rem;
+    }
 
+    .card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        margin: 1rem 0;
+    }
+}
 /* Estilos de los iconos */
 .card i {
     font-size: 2rem;
@@ -187,24 +233,6 @@
     transform: scale(1.05);
 }
 
-/* Estilos para dispositivos móviles */
-@media (max-width: 768px) {
-    .carousel h1 {
-        font-size: 2.5rem;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .carousel {
-        height: 70vh;
-    }
-
-    .whatsapp {
-        display: none;
-    }
-}
 
 /* Nuevos estilos para secciones de experiencia y lugares */
 .two-column-section {
@@ -328,22 +356,14 @@
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
 }
-/* Nuevos estilos para la sección de precios */
+//* Responsive para Precios */
 @media (max-width: 768px) {
     .pricing-container {
         grid-template-columns: 1fr;
     }
+
+    .price-card {
+        margin: 1rem 0;
+    }
 }
 
-.whatsapp a{
-    float: right;
-    text-align: center;
-    text-decoration: none;
-    bottom: 4rem;
-    right: 4rem;
-    color: var(--white);
-    background: #10b981;
-    border-radius: var(--radius);
-    padding: 1rem;
-    transition: transform 0.3s;
-}

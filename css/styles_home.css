@@ -27,9 +27,9 @@
 
 /* Contenedor principal de contenido hero */
 .hero-content {
-    max-width: 800px;
+    max-width:100%;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem;s
 }
 
 .hero h1 {
@@ -61,7 +61,6 @@
     background-color: white;
     cursor: pointer;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg ...");
     background-repeat: no-repeat;
     background-position: right 1rem center;
     padding-right: 2.5rem;
@@ -266,32 +265,6 @@
     transform: scale(1.05);
 }
 
-/* Estilos Responsive */
-@media (max-width: 1024px) {
-    .hero {
-        height: auto;
-        padding-top: 6rem;
-    }
-    .hero h1 {
-        font-size: 1.5rem;
-    }
-    .search-box {
-        flex-direction: column;
-    }
-    .features-grid, .destinations-grid, .guides-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
-}
-
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
-    .search-box select {
-        font-size: 0.9rem;
-    }
-}
-
 .guides-section .ver {
     text-align: center;
     margin-top: 2rem;
@@ -305,4 +278,84 @@
     border-radius: 4rem;
     display: inline-block;
     margin-top: 1rem;
+}
+/* Ajustes para tablets (pantallas medianas) */
+@media (max-width: 1024px) {
+    .hero {
+        height: auto; /* Permite que la altura se adapte al contenido */
+        padding: 3rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem; /* Reduce el tamaño del texto */
+        margin-bottom: 1.5rem;
+        margin-top: 25px;
+    }
+
+    .search-box {
+        padding: 1rem; /* Ajusta el relleno */
+        gap: 0.5rem; /* Reduce el espacio entre los elementos */
+    }
+
+    .search-box select.search-input {
+        min-width: 100%; /* El campo ocupa todo el ancho */
+    }
+
+    .search-button {
+        width: 100%; /* El botón ocupa todo el ancho disponible */
+    }
+}
+
+/* Ajustes para móviles (pantallas pequeñas) */
+@media (max-width: 768px) {
+    .hero {
+        height: auto; /* La altura dependerá del contenido */
+        padding: 2rem 1rem;
+        background-size: cover; /* Ajusta el fondo para cubrir el área */
+        background-position: center;
+       
+    }
+
+    .hero-content {
+        max-width: 90%; /* Reduce el ancho máximo del contenido */
+    }
+
+    .hero h1 {
+        font-size: 2rem; /* Reduce aún más el tamaño del texto */
+        margin-bottom: 1rem;
+        margin-top: 25px;
+    }
+
+    .search-box {
+        flex-direction: column; /* Cambia el diseño a una columna */
+    }
+
+    .search-box select.search-input {
+        width: 100%; /* El campo ocupa todo el ancho */
+    }
+
+    .search-button {
+        width: 100%; /* El botón también ocupa todo el ancho */
+    }
+}
+
+/* Ajustes para móviles muy pequeños (pantallas menores a 480px) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.5rem; /* Tamaño reducido para pantallas muy pequeñas */
+        margin-top: 25px;
+    }
+
+    .search-box {
+        padding: 0.8rem; /* Reduce aún más el relleno */
+    }
+
+    .search-box select.search-input {
+        font-size: 0.9rem; /* Reduce el tamaño del texto */
+    }
+
+    .search-button {
+        padding: 0.8rem; /* Botón más pequeño */
+        font-size: 0.9rem;
+    }
 }
