@@ -35,7 +35,6 @@
 .hero h1 {
     font-size: 3.5rem;
     margin-bottom: 2.5rem;
-    
 }
 
 /* Estilos de la caja de búsqueda */
@@ -304,6 +303,11 @@
     .search-button {
         width: 100%; /* El botón ocupa todo el ancho disponible */
     }
+    .guides-section {
+        height: auto;
+        padding: 3rem 1rem;
+    }
+    
 }
 
 /* Ajustes para móviles (pantallas pequeñas) */

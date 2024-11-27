@@ -185,8 +185,8 @@
         grid-template-columns: 1fr;
     }
 
-    .card {
-        margin: 1rem 0;
+    .column-content .card {
+        margin: 2rem 0;
     }
 }
 /* Estilos de los iconos */
