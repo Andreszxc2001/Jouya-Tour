@@ -110,8 +110,8 @@ body {
     }
     
     .nav-logo img {
-        width: 100px;
-        height: 25px;
+        width: 90px;
+        height: 27px;
     }
     
     .nav-links {
@@ -228,10 +228,11 @@ footer {
 }
 /* Estilo del texto de créditos */
 .By, .text {
-    padding: 0 2px; /* Espaciado interno pequeño */
+    padding: 0px; /* Espaciado interno pequeño */
     margin: 4px 0; /* Márgenes superior e inferior pequeños */
     color: #fff9f9; /* Color de texto gris claro */
     text-align: center; /* Centrado del texto */
     font-size: 0.9em; /* Tamaño de fuente pequeño */
     line-height: 1.2; /* Altura de línea ajustada */
+    margin:0;
 }

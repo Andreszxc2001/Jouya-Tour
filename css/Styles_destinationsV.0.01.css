@@ -374,7 +374,7 @@
         font-size: 1rem; /* Ajusta el tamaño de los títulos */
     }
     .card p, .pricing-details p {
-        font-size: 0.5rem; /* Ajusta el tamaño del texto */
+        font-size: 0.8rem; /* Ajusta el tamaño del texto */
     }
     .price-card {
         padding: 1rem; /* Reducir padding para elementos pequeños */
