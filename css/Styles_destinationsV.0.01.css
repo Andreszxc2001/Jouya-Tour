@@ -1,0 +1,405 @@
+/* Estilos del carrusel */
+.carousel {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Estilos de las diapositivas */
+.carousel-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilos de las diapositivas */
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    visibility: hidden;
+}
+
+/* Estilos del overlay */
+.carousel-overlay {
+    background: linear-gradient(rgba(0, 0, 0, 0.589), rgba(0, 0, 0, 0.664));
+    z-index: 1; /* Ensure it's above the image but below the content */
+
+}
+
+/* Estilos de la diapositiva activa */
+.carousel-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Estilos del contenido del carrusel */
+
+.carousel-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--white);
+    z-index: 2;
+    width: 90%;
+    max-width: 800px;
+}
+
+/* Estilos del overlay */
+
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+}
+
+/* Estilos de los títulos y párrafos */
+
+.carousel h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.carousel p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Estilos de los botones */
+
+.carousel-controls {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 2;
+}
+
+/* Estilos de los puntos */
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+/* Estilos de los puntos activos */
+.carousel-dot.active {
+    background: var(--white);
+}
+
+
+/* Estilos de la sección */
+.section {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+/* Estilos del encabezado */
+.section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--accent);
+}
+
+/* Estilos de la grilla */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* Estilos de las tarjetas */
+.card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+    margin: 15px;
+}
+
+/* Estilos de las tarjetas al pasar el mouse */
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Estilos de los iconos */
+.card i {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+/* Estilos del precio */
+.price {
+    font-size: 2.5rem;
+    color: var(--primary);
+    font-weight: bold;
+    margin: 1rem 0;
+}
+/* Estilos del botón */
+.btn {
+    display: inline-block;
+    background: var(--primary);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: transform 0.3s;
+    margin-top: 1rem;}
+
+    .btn-2 {
+        display: inline-block;
+        background: var(--text);
+        color: var(--white);
+        padding: 1rem 2rem;
+        border-radius: var(--radius);
+        text-decoration: none;
+        transition: transform 0.3s;
+        margin-top: 1rem;
+    }
+    
+
+    .btn a {
+        color: var(--white);
+}
+/* Estilos del botón al pasar el mouse */
+.btn:hover {
+    transform: scale(1.05);
+}
+
+
+/* Nuevos estilos para secciones de experiencia y lugares */
+.two-column-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 2000px;
+    margin: 1rem auto;
+    padding: 0rem;
+}
+
+.column-content .card{
+    background-color: #1f2937;
+}
+/* Nuevos estilos para el contenido de la sección */
+.column-content h2 {
+    display: grid;
+    text-align: center;
+}
+.column-content h3 {
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.column-content p {
+    color: var(--white);
+    margin-bottom: 0.5rem;}
+
+/* Nuevos estilos para la sección de detalles de precios */
+.pricing-details {
+    background:#1f2937;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+}
+/* Nuevos estilos para el encabezado de la sección de detalles de precios */
+.pricing-details h3 {
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+.pricing-details li {
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+/* Nuevos estilos para la lista de incluciones */
+.included-list {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+/* Nuevos estilos para los elementos de la lista de incluciones */
+.included-list li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+/* Nuevos estilos para los iconos de la lista de incluciones */
+.included-list i {
+    color: var(--primary);
+}
+/* Nuevos estilos para la caja resaltada */
+.highlight-box {
+    background: var(--primary);
+    color: var(--white);
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin: 1rem 0;
+    text-align: center;
+}
+.highlight-box i{
+    color: white;
+}
+/* Nuevos estilos para las tarjetas de precios */
+.price-card {
+    background:#1f2937;
+    border-radius: var(--radius);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+    margin: 15px;
+}
+/* Nuevos estilos para las tarjetas de precios al pasar el mouse */
+.price-card:hover {
+    transform: translateY(-5px);
+}
+
+
+
+.packages a {
+    text-decoration: none;
+    color: var(--text);
+}
+/* Nuevos estilos para el títulos de las tarjetas de precios */
+.package-title {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.packages p {
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+.packages li {
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+/* Nuevos estilos para la duración */
+.duration {
+    color: var(--text);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+
+/* Estilo para pantallas móviles */
+@media (max-width: 767px) {
+    .carousel {
+        height: 500px; /* Ajusta la altura para pantallas más pequeñas */
+    }
+
+    .carousel-content h1 {
+        font-size: 1.5rem; /* Ajusta el tamaño del título */
+    }
+
+    .carousel-content p {
+        font-size: 0.7rem; /* Ajusta el tamaño del texto */
+    }
+
+    .carousel-controls {
+        bottom: 1rem; /* Mueve los controles hacia abajo */
+    }
+
+    .carousel-dot {
+        width: 10px; /* Tamaño más pequeño para los puntos */
+        height: 10px;
+    }
+
+    .two-column-section {
+        grid-template-columns: 1fr; /* Cambio a una sola columna */
+    }
+
+    .column-content h2 {
+        font-size: 1.5rem; /* Ajusta el tamaño del título */
+    }
+
+    .card {
+        margin: 10px; /* Reducir margen para dispositivos pequeños */
+    }
+
+    .pricing-details, .price-card {
+        padding: 1.5rem; /* Reducir padding para elementos pequeños */
+    }
+
+    .pricing-details ul  li {
+        font-size: 0.7rem; /* Ajusta el tamaño del texto de la lista */
+    }
+
+    .highlight-box {
+        padding: 1rem; /* Ajusta el padding de la caja resaltada */
+    }
+
+    .price {
+        font-size: 0.9rem; /* Reducir tamaño del precio */
+    }
+
+    .btn, .btn-2 {
+        width: 70%; /* Botones de ancho completo */
+        text-align: center; /* Centw+ra el texto */
+        padding: 1rem 0; /* Ajusta el padding */
+    }
+
+    .grid {
+        grid-template-columns: 1fr; /* Cambio a una sola columna */
+    }
+
+    .section h2 {
+        font-size: 1rem; /* Ajusta el tamaño del título */
+    }
+
+    .card h3, .pricing-details h3, .package-title {
+        font-size: 1rem; /* Ajusta el tamaño de los títulos */
+    }
+    .card p, .pricing-details p {
+        font-size: 0.5rem; /* Ajusta el tamaño del texto */
+    }
+    .price-card {
+        padding: 1rem; /* Reducir padding para elementos pequeños */
+    }
+
+    .prince-card a, .price-card h3, .price-card p {
+        font-size: 0.8rem; /* Ajusta el tamaño del texto */
+    }
+    .price {
+        font-size: 0.8rem;
+    }
+
+    .duration {
+        font-size: 0.7rem;
+    }
+
+    .included-list li {
+        font-size: 0.7rem; /* Ajusta el tamaño del texto de la lista */
+    }
+
+    .price-card .btn {
+        padding: 0.5rem 1rem; /* Ajusta el padding del botón */
+        font-size: 0.7rem; /* Ajusta el tamaño del texto */
+        justify-content: center;
+        color: #ffffff;
+    }
+
+}

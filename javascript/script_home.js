@@ -2,33 +2,75 @@
 const guides = [
     {
         name: 'SIERRA MAMEY',
-        specialty: ['Alimentacion +', 'Hospedaje', '+ Transporte'],
+        description: 'Pasadia / 1 día',
+        texto : '0 Noches',
+        specialty: ['Alimentacion +', 'Tour fotografico', '+ Transporte'],
         location: 'Dibulla',
         rating: 4.9,
         reviews: 156,
-        price: '$300,000 COP/Dia',
+        price: '$190,000 COP',
         image: '/assets/images/images-destinations/1.Precios sierra mamey.jpg',
-        URL: '/html/1.Destinations/1.Destinations-Sierra_mamey.html'
+        URL: '/html/1.Destinations/1.Destinations-Sierra_mamey.html',
     },
     {
         name: 'CABO DE LA VELA',
+        description: '2 días',
+        texto : '1 Noches',
         specialty: ['Hospedaje +', 'Alimentacion', '+ Tour 4x4'],
         location: 'Cabo de la Vela',
         rating: 4.9,
         reviews: 156,
-        price: '$550,000 COP/ 2 Dias',
+        price: '$550,000 COP',
         image: '/assets/images/images-destinations/2.Precios cabo de la Vela.png',
         URL: '/html/1.Destinations/2.Destinations-Cabo_de_la_vela.html'
     },
     {
         name: 'VALLEDUPAR',
-        specialty: ['Comida+', 'Estadia', '+Transportes'],
+        description: 'Pasadia / 1 día',
+        texto : '0 Noches',
+        specialty: ['Alimentacion', '+', 'Transportes'],
         location: 'Valledupar',
         rating: 4.9,
         reviews: 156,
         price: '$450,000 COP',
         image: '/assets/images/images-destinations/6.Precios tour-Valledupar.webp.png',
         URL: '/html/1.Destinations/6.Destinations-Tour_Valledupar.html'
+    },
+    {
+        name: 'SANTUARIO DE FLAMENCOS',
+        description: 'Pasadia / 1 día',
+        texto : '0 Noches',
+        specialty: ['Alimentacion', '+', 'Transportes'],
+        location: 'Camarones',
+        rating: 4.9,
+        reviews: 156,
+        price: '$250,000 COP',
+        image: '/assets/images/Carrusel-destinations/3.Santuario-de-flamencos/Image-2.jpg',
+        URL: '/html/1.Destinations/3.Destinations-Santuario_de_flamencos.html'
+    },
+    {
+        name: 'RIOHACHA',
+        description: 'Pasadia / 1 día',
+        texto : '0 Noches',
+        specialty: ['Alimentacion', '+', 'Transportes'],
+        location: 'Riohacha',
+        rating: 4.9,
+        reviews: 156,
+        price: '$150,000 COP',
+        image: '/assets/images/Carrusel-destinations/5.Tour-riohacha/image-4.jpg',
+        URL: '/html/1.Destinations/5.Destinations-Tour_Riohacha.html'
+    },
+    {
+        name: 'LA GUAJIRA',
+        description: '5 días',
+        texto : '4 Noches',
+        specialty: ['Alimentacion +', 'Hospedaje', '+ Transportes'],
+        location: 'La Guajira',
+        rating: 4.9,
+        reviews: 156,
+        price: '$1.350,000 COP',
+        image: '/assets/images/Carrusel-destinations/4.Tour-guajira/image-4.jpg',
+        URL: '/html/1.Destinations/4.Destinations-Tour_guajira.html'
     }
 ];
 
@@ -100,12 +142,14 @@ guidesGrid.innerHTML = guides.map(guide => `
             <img src="${guide.image}" alt="${guide.name}" class="guide-image">
             <div class="guide-info">
                 <h3>${guide.name}</h3>
-                <div class="categories">
-                    ${guide.specialty.map(spec => `
+                <p class="guide-description"><i class="fa-solid fa-sun"></i> ${guide.description}</p> 
+                <p class="guide-description"><i class="fa-solid fa-moon"></i> ${guide.texto}</p>
+                
+                <div class="categories"><i class="fa-solid fa-plus"></i>${guide.specialty.map(spec =>`
                         <span class="category-tag">${spec}</span>
                     `).join('')}
                 </div>
-                <p><i class="fa-solid fa-location-dot"></i>${guide.location}</p>
+                <p><i class="fa-solid fa-location-dot"></i> ${guide.location}</p>
                 <div class="guide-rating">
                     ${createStarRating(guide.rating)} (${guide.reviews} reseñas)
                 </div>
